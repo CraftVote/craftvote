@@ -15,10 +15,11 @@ class HelloworldView extends \System\HtmlView {
     
     public function execute() {
         
+        $time = $this->getParam('time');
+        
         $this->layout('general');
         $this->title('Hello world!');
-        $time = $this->getParam('time');
-        $this->h1('This is my first Web Application');
+        $this->pageHeader('HMVC Web Application');
         $this->p('Current time: '.$time);
     }
   
