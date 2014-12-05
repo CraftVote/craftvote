@@ -27,13 +27,25 @@ class Router
         $this->count = preg_match_all("/\/([-_0-9a-z.]+)/", strtolower(filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING)), $params);
         $this->raw = $params[1];
         $this->parse();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $this->request->setPostMethod();
+        }
+        else{
+            $this->request->setGetMethod();
+        }
     }
     
-    public function assignFromString($url){
+    public function assignFromString($url, $method = 'GET'){
         $params = array();
         $this->count = preg_match_all("/\/([-_0-9a-z.]+)/", strtolower($url), $params);
         $this->raw = $params[1];
         $this->parse();
+        if ($method === 'POST'){
+            $this->request->setPostMethod();
+        }
+        else{
+            $this->request->setGetMethod();
+        }
     }
     
     protected function parse(){

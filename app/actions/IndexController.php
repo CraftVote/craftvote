@@ -13,7 +13,7 @@
  */
 class IndexController extends \System\Controller {
     
-    public function execute() {
+    public function get() {
         $this->setParam('time', time());
         $this->moveTo('helloworld');
     }

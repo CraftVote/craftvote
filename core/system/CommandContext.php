@@ -52,6 +52,23 @@ class CommandContext extends \System\Context{
     public function getCustomParam($name){
         return $this->get('view', $name);
     }
+    
+    public function setPostMethod(){
+        $this->set('system', 'request_method', 'POST');
+    }
+    
+    public function isPostMethod(){
+        if ($this->get('system', 'request_method') === 'POST'){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public function setGetMethod(){
+        $this->set('system', 'request_method', 'GET');
+    }
 
     public function getBuffer(){
         return $this->get('system', 'request_buffer');

@@ -13,7 +13,7 @@
  */
 class Page404Controller extends \System\Controller {
     
-    public function execute() {
+    public function get() {
         
         $this->responseCode(404);
         return true;

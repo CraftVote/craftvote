@@ -17,7 +17,7 @@ abstract class Controller {
     
     protected $context;
     
-    abstract public function execute();
+    abstract public function get();
     abstract public function allowAccess();
     
     public function close(){

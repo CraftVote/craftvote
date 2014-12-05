@@ -88,7 +88,15 @@ class FrontController {
             throw new \System\Exception('Class "'.get_class($cmd).'" should be executable');
         }
         if ($this->checkAccess($cmd->allowAccess(), $request, is_subclass_of($cmd, '\System\AjaxController')) === true){
-            $cmd->execute();
+            if ($request->isPostMethod()){
+                if (!method_exists($cmd, 'post')){
+                    throw new \System\Exception('POST method not found');
+                }
+                $cmd->post();
+            }
+            else{
+                $cmd->get();
+            }
         }
     }
     
