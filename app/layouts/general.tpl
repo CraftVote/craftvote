@@ -20,6 +20,8 @@
         <title><!--H_TITLE--></title>
     </head>
     <body>
+        <!--[widget/menu]-->
         <!--BODY-->
+        
     </body>
 </html>
