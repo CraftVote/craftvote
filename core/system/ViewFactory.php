@@ -18,13 +18,13 @@ class ViewFactory {
     static function getView(\System\CommandContext $request){
         $action = $request->getAction();
         $class = ucfirst(strtolower($action)).'View';
-        if ($request->getPath() === null){
-            $path = DIRECTORY_SEPARATOR;
-        }
-        else {
+        if ($request->getPath() != null){
             $path = DIRECTORY_SEPARATOR . $request->getPath();
         }
-        $file = PATH . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'views'. $path . $class . '.php';
+        else{
+            $path = NULL;
+        }
+        $file = PATH . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'views'. $path . DIRECTORY_SEPARATOR . $class . '.php';
         if (!file_exists($file)){
             throw new \System\Exception('File "'.$file.'" not found');
         }

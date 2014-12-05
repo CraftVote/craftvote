@@ -1,0 +1,5 @@
+Order Allow,Deny
+Allow from all
+
+RewriteEngine On
+RewriteRule !\.(gif|jpg|png|ico|js|css|zip|woff|ttf|JPG|txt|map|jpeg)$ index.php
