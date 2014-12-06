@@ -20,7 +20,9 @@ class Register extends \Form\AbstractModel {
         $this->setLabelLen(2)->setFieldLen(5);
         
         $this->appendElement(new \UI\SingleRowText('name', 'Ваше имя', true));
-        $this->appendElement(new \UI\Email('email', 'E-mail', true));
+        $email = new \UI\Email('email', 'E-mail', true);
+        $email->setValidation(\Form\ElementValidations::DB_UNIQUE_FIELD, array("users","email"));
+        $this->appendElement($email);
         $this->appendElement(new \UI\Password('password', 'Пароль'));
         $pass = new \UI\Password('repassword', 'Повторите пароль');
         $pass->setEqualField("password");

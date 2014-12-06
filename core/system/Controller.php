@@ -82,6 +82,10 @@ abstract class Controller {
         $this->context->setContentType('application/json');
     }
     
+    public function setContentTypeHtml(){
+        $this->context->setContentType('text/html');
+    }
+    
     public function setError($msg){
         $this->context->setError($msg);
         $this->context->setAction('Error');
