@@ -5,14 +5,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-namespace Models\Form;
+namespace Models\Forms;
 /**
  * Description of LoginForm
  *
  * @author ishibkikh
  */
 
-class LoginForm extends \Form\AbstractModel {
+class Login extends \Form\AbstractModel {
     
 
     public function renderForm()
