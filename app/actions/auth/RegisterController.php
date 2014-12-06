@@ -25,8 +25,8 @@ class RegisterController extends \System\Controller {
             $dm = new \DB\SQL\DataMapper($user);
             $dm->save();
             $ajax->ajax_redirect("/");
-            $this->setAjax($ajax);
-        } 
+        }
+        $this->setAjax($ajax);
     }
     
     public function allowAccess() {
