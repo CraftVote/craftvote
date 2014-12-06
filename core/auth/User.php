@@ -127,7 +127,7 @@ class User extends SessionRegistry {
         setcookie(session_name(),'',0,'/');
     }
 
-    static public function registry(\Models\Table\Users $user) {
+    static public function registry(\Models\Tables\Users $user) {
         if (session_status !== PHP_SESSION_ACTIVE){
             session_start();
         }
@@ -138,7 +138,7 @@ class User extends SessionRegistry {
             }
         }
         parent::instance()->set('id', $user->id);
-        parent::instance()->set('name', $user->fullname);
+        parent::instance()->set('name', $user->name);
         parent::instance()->set('role', $user->role);
         parent::instance()->set('ip', filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_SANITIZE_STRING));
         parent::instance()->set('useragent', filter_input(INPUT_SERVER, 'HTTP_USER_AGENT', FILTER_SANITIZE_STRING));

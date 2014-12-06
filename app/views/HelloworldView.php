@@ -16,7 +16,6 @@ class HelloworldView extends \System\HtmlView {
     public function execute() {
         
         $time = $this->getParam('time');
-        
         $this->layout('general');
         $this->title('Hello world!');
         $this->pageHeader('HMVC Web Application');

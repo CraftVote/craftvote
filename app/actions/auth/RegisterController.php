@@ -22,6 +22,7 @@ class RegisterController extends \System\Controller {
         if($input){
             $user = new \Models\Tables\Users();
             $user->assignFromArray($input);
+            $user->password = \System\Password::hash($user->password);
             $dm = new \DB\SQL\DataMapper($user);
             $dm->save();
             $ajax->ajax_redirect("/");

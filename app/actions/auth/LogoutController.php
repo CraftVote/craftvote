@@ -7,15 +7,18 @@
  */
 
 /**
- * Description of NewsController
+ * Description of LogoutController
  *
  * @author Ivan
  */
-class NewsController extends \System\Controller {
+class LogoutController extends \System\Controller {
     
-    public function get(){}
+    public function get(){
+        \Auth\Identity::logout();
+        $this->redirect('/');
+    }
     
     public function allowAccess() {
-        return NULL;
+        return false;
     }
 }

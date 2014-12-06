@@ -34,6 +34,10 @@ class Menu {
         }
     }
     
+    public function addRightText($text){
+        $this->right[] = '<p class="navbar-text">'.$text.'</p>';
+    }
+
     public function addRightButton($title, $action = '#', $onclick = null){
         if ($this->active === $action){
             $this->right[] = '<li class="active"><a href="'.$action.'" onclick="'.$onclick.'">'.$title.'</a></li>';

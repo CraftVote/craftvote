@@ -11,13 +11,15 @@
  *
  * @author Anonymous
  */
-class FormController extends \System\AjaxController {
+class FormController extends \System\Controller {
     public function allowAccess() {
         return NULL;
     }
     public function post()
     {
+        $ajax = new \System\Ajax();
         $form = new \Models\Forms\Login();
-        $this->ajax_success($form->getArray());
+        $ajax->ajax_success($form->getArray());
+        $this->setAjax($ajax);
     }
 }
