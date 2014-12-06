@@ -21,7 +21,8 @@
     </head>
     <body>
         <!--[widget/menu]-->
+        <div class="container">
         <!--BODY-->
-        
+        </div>
     </body>
 </html>

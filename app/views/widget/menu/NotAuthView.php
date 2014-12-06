@@ -14,6 +14,11 @@
 class NotauthView extends \System\View {
     
     public function execute() {
-        $this->template('widget menu notauth');
+        $menu = new \UI\Menu('CraftVote');
+        $menu->activeButton(filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING));
+        $menu->addLeftButton('Новости проекта', '/news');
+        $menu->addLeftButton('Войти', '#', 'Modal.loadForm(\'/auth/form\');return false;');
+        $menu->addLeftButton('Регистрация', '/auth/register');
+        $this->body($menu->getHtml());
     }
 }
