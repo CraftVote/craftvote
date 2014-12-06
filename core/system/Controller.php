@@ -24,6 +24,12 @@ abstract class Controller {
         $this->context->setComplited();
     }
     
+    public function setAjax(\System\Ajax $ajax){
+        $this->context->setBuffer($ajax->getArray());
+        $this->setContentTypeJson();
+        $this->setComplited();
+    }
+    
     public function __construct(CommandContext $request) {
         $this->context = $request;
     }

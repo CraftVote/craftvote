@@ -17,14 +17,15 @@ class RegisterController extends \System\Controller {
     }
     
     public function post(){
-        $ajax = new \System\
-       $input = $this->ajax_validate_form(new \Models\Form\Register());
+        $ajax = new \System\Ajax();
+        $input = $ajax->ajax_validate_form(new \Models\Forms\Register());
         if($input){
             $user = new \Models\Tables\Users();
             $user->assignFromArray($input);
             $dm = new \DB\SQL\DataMapper($user);
             $dm->save();
-            $this->ajax_redirect("/");
+            $ajax->ajax_redirect("/");
+            $this->setAjax($ajax);
         } 
     }
     
