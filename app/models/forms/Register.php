@@ -22,6 +22,9 @@ class Register extends \Form\AbstractModel {
         $this->appendElement(new \UI\SingleRowText('name', 'Ваше имя', true));
         $this->appendElement(new \UI\Email('email', 'E-mail', true));
         $this->appendElement(new \UI\Password('password', 'Пароль'));
-        $this->appendButton(new \UI\Button\LoginButton());        
+        $pass = new \UI\Password('repassword', 'Повторите пароль');
+        $pass->setEqualField("password");
+        $this->appendElement($pass);
+        $this->appendButton(new \UI\Button\RegistryButton());        
     }
 }
