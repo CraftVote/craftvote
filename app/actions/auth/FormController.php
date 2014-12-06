@@ -15,7 +15,7 @@ class FormController extends \System\AjaxController {
     public function allowAccess() {
         return NULL;
     }
-    public function get()
+    public function post()
     {
         $form = new \Models\Forms\Login();
         $this->ajax_success($form->getArray());
