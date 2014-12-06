@@ -44,6 +44,6 @@ class Logger {
    
     static private function write($file, $text)
     {
-        file_put_contents(PATH.self::LOGS_FOLDER.DIRECTORY_SEPARATOR.$file, date('Y-m-d H:i:s').' '.$text.PHP_EOL, FILE_APPEND | LOCK_EX);
+        file_put_contents(self::getBaseDir().DIRECTORY_SEPARATOR.$file, date('Y-m-d H:i:s').' '.$text.PHP_EOL, FILE_APPEND | LOCK_EX);
     }
 }
