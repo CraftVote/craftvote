@@ -90,8 +90,8 @@ class CommandContext extends \System\Context{
         return $this->get('system', 'request_path');
     }
     
-    public function getUrlValue(){
-        return $this->get('system', 'request_value');
+    public function getUrlValues(){
+        return $this->get('system', 'request_values');
     }
     
     public function setBuffer($text){
@@ -114,8 +114,8 @@ class CommandContext extends \System\Context{
         $this->set('system', 'request_path', $val);
     }
     
-    public function setUrlValue($val){
-        $this->set('system', 'request_value', $val);
+    public function setUrlValues($val){
+        $this->set('system', 'request_values', $val);
     }
     
     public function setRedirection($url){

@@ -75,52 +75,11 @@ class FrontController {
         return true;
     }
 
-
-    protected function handleRequest(\System\CommandContext $request){
-   
-        if ($request->getResponseCode() === 404){
-            $request->setAction('Page404');
-            $request->setPath('_system');
-            return false;
-        }
-        $cmd = \System\CommandFactory::getCommand($request);
-        if (!is_subclass_of($cmd, '\System\Controller')){
-            throw new \System\Exception('Class "'.get_class($cmd).'" should be executable');
-        }
-        if ($this->checkAccess($cmd->allowAccess(), $request, is_subclass_of($cmd, '\System\AjaxController')) === true){
-            if ($request->isPostMethod()){
-                if (!method_exists($cmd, 'post')){
-                    throw new \System\Exception('POST method not found');
-                }
-                $cmd->post();
-            }
-            else{
-                $cmd->get();
-            }
-        }
-    }
-    
-    protected function handleView(\System\CommandContext $request){
-
-        $view = \System\ViewFactory::getView($request);
-        if (!is_subclass_of($view, '\System\View')){
-            throw new \System\Exception('Class "'.get_class($view).'" must be extended from "View" class');
-        }
-        $view->execute();
-     }
-
     static public function run(){
-        
         $instance = new self();
         $instance->init();
-        $context = new \System\CommandContext();
-        $router = new \System\Router($context);
-        $router->assignFromURL();
-        $instance->handleRequest($context);
-        if (!$context->isComplited()){
-            $instance->handleView($context);
-        }
-        
+        $service = new \System\Service();
+        $context = $service->getContext();
         if ((!headers_sent())and(!$context->isCloseRunning())){
             new \System\Transmitter($context);
         }

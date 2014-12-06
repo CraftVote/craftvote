@@ -101,8 +101,9 @@ abstract class View {
         $n = preg_match_all($p1, $this->context->getBuffer(), $matches);
         for ($i=0; $i<$n; $i++){
              $p2='<!--['.$matches[1][$i].']-->';
-             $widget = new \System\Widget($matches[1][$i]);
+             $widget = new \System\Service('/'.$matches[1][$i]);
              $this->context->setBuffer(str_replace($p2, $widget->getContent(), $this->context->getBuffer()));
+             unset($widget);
         }    
     }
     

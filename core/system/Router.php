@@ -13,9 +13,6 @@ namespace System;
 
 class Router
 {
-    const PAGE_DEFAULD   = 'Index';
-    const PAGE_AUTOLOAD   = 'Autoload';
-    
     private $count, $raw = array(), $request;
     
     public function __construct(\System\CommandContext $request){
@@ -37,7 +34,7 @@ class Router
     
     public function assignFromString($url, $method = 'GET'){
         $params = array();
-        $this->count = preg_match_all("/\/([-_0-9a-z.]+)/", strtolower($url), $params);
+        $this->count = preg_match_all("/([-_0-9a-z.]+)/", strtolower($url), $params);
         $this->raw = $params[1];
         $this->parse();
         if ($method === 'POST'){
@@ -56,33 +53,27 @@ class Router
         if ($this->_routDirect()){
             return true;
         }
-        if ($this->_routIndex()){
-            return true;
-        }
         if ($this->_routDirectParam()){
             return true;
         }
-        if ($this->_routAutoload()){
-            return true;
-        }    
         $this->setNotFound();
     }
     
     private function _routRoot(){
         if ($this->count === 0){
-            $this->request->setUrlValue(null);
-            $this->request->setAction(self::PAGE_DEFAULD);
+            $this->request->setUrlValues(null);
+            $this->request->setAction('Index');
             $this->request->setPath(null);
             return true;
         }    
         else{
             return false;
         }
-    }    
+    }
       
     private function _routDirect(){
         $array = $this->raw;
-        $this->request->setUrlValue(null);
+        $this->request->setUrlValues(null);
         $this->request->setAction(array_pop($array));
         if (count($array) > 0){
             $this->request->setPath(implode(DIRECTORY_SEPARATOR, $array));
@@ -92,41 +83,31 @@ class Router
         }
         return $this->isCommandExists();
     }
-    
-    private function _routIndex(){
-        $this->request->setUrlValue(null);
-        $this->request->setAction(self::PAGE_DEFAULD);
-        $this->request->setPath(implode(DIRECTORY_SEPARATOR, $this->raw));
-        return $this->isCommandExists();
-    }
+
     
     private function _routDirectParam(){
-        if (count($this->raw)<2){
+        if ($this->count < 2){
             return false;
         }
         $array = $this->raw;
-        $this->request->setUrlValue(array_pop($array));
-        $this->request->setAction(array_pop($array));
-        if (count($array) > 0){
-            $this->request->setPath(implode(DIRECTORY_SEPARATOR, $array));
+        $action = array_pop($array);
+        $values = array();
+        for($i=0; $i < $this->count; $i++){
+            $values[] = $action;
+            $action = array_pop($array);
+            $this->request->setAction($action);
+            $this->request->setUrlValues($values);
+            if (count($array) > 0){
+                $this->request->setPath(implode(DIRECTORY_SEPARATOR, $array));
+            }
+            else{
+                $this->request->setPath(null);
+            }
+            if ($this->isCommandExists()){
+                return true;
+            }
         }
-        else{
-            $this->request->setPath(null);
-        }
-        return $this->isCommandExists();
-    }
-    
-    private function _routAutoload(){
-        $array = $this->raw;
-        $this->request->setUrlValue(array_pop($array));
-        $this->request->setAction(self::PAGE_AUTOLOAD);
-        if (count($array) > 0){
-            $this->request->setPath(implode(DIRECTORY_SEPARATOR, $array));
-        }
-        else{
-            $this->request->setPath(null);
-        }
-        return $this->isCommandExists();
+        return false;
     }
     
     private function setNotFound(){
@@ -140,11 +121,12 @@ class Router
         else{
             $path = DIRECTORY_SEPARATOR . $this->request->getPath() . DIRECTORY_SEPARATOR;
         }
-        $file =  PATH. DIRECTORY_SEPARATOR. 'application'. DIRECTORY_SEPARATOR. 'actions'. $path . ucfirst($this->request->getAction()) . 'Command.php';
+        $file = PATH.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'actions'.$path.ucfirst($this->request->getAction()).'Controller.php';
         if (!file_exists($file)){
             return false;
         }
         else {
+            
             return true;
         }
     }

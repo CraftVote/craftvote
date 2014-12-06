@@ -17,7 +17,6 @@ abstract class Controller {
     
     protected $context;
     
-    abstract public function get();
     abstract public function allowAccess();
     
     public function close(){
@@ -62,8 +61,7 @@ abstract class Controller {
         return null;
     }
     
-    public function moveTo($action, $value = null){
-        $this->context->setUrlValue($value);
+    public function moveTo($action){
         $items = explode(' ', $action);
         if (count($items)>0){
             $this->context->setAction(ucfirst(array_pop($items)));
