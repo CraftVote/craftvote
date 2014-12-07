@@ -134,9 +134,6 @@ class VerifyField {
     }
     
     static public function captcha($input){
-        if (session_status() === PHP_SESSION_NONE){
-            session_start();
-        }
         return ($input === $_SESSION['captcha']);
     }
 

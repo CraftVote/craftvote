@@ -17,6 +17,7 @@ class RegisterController extends \System\Controller {
     }
     
     public function post(){
+        
         $ajax = new \System\Ajax();
         $input = $ajax->ajax_validate_form(new \Models\Forms\Register());
         if($input){

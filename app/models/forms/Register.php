@@ -27,6 +27,7 @@ class Register extends \Form\AbstractModel {
         $pass = new \UI\Password('repassword', 'Повторите пароль');
         $pass->setEqualField("password");
         $this->appendElement($pass);
+        $this->appendElement(new \UI\Captcha('captcha', 'Код'));
         $this->appendButton(new \UI\Button\RegistryButton());        
     }
 }
