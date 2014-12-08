@@ -19,7 +19,7 @@ class AuthView extends \System\View {
         $menu->addLeftButton('Новости проекта', '/news');
         $menu->addLeftButton('Профиль', '/profile');
         $menu->addRightText('<span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.\Auth\User::getName());
-        $menu->addRightButton('<span title="Выйти" class="glyphicon glyphicon-log-out" aria-hidden="true"></span>', '/auth/logout');
+        $menu->addRightButton('<span title="Выйти" class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Выйти', '/auth/logout');
         $this->body($menu->getHtml());
     }
 }

@@ -17,8 +17,8 @@ class NotauthView extends \System\View {
         $menu = new \UI\Menu('CraftVote');
         $menu->activeButton(filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING));
         $menu->addLeftButton('Новости проекта', '/news');
-        $menu->addLeftButton('Войти', '#', 'Modal.loadForm(\'/auth/form\');return false;');
         $menu->addLeftButton('Регистрация', '/auth/register');
+        $menu->addRightButton('<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Войти', '#', 'Modal.loadForm(\'/auth/form\');return false;');
         $this->body($menu->getHtml());
     }
 }
