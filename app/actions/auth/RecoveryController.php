@@ -26,6 +26,17 @@ class RecoveryController extends \System\Controller {
                 $ajax->ajax_red_alert('Указанный E-mail не зарегистрирован');
             }
             else{
+                $plain = \System\Hasher::genRandom(5);
+                $mail = new \Custom\SystemEmail($user->email, 'Восстановление пароля');
+                $mail->template('password_recovery');
+                $mail->set('username', $user->name);
+                $mail->set('password', $plain);
+                $mail->go();
+                
+                $user->clear();
+                $user->password = \System\Password::hash($plain);
+                $mapper->save();
+                
                 $ajax->ajax_popup('Успешно', 'На указанный E-mail выслан новый пароль');
             }
         }
