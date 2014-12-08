@@ -37,6 +37,8 @@ class RecoveryController extends \System\Controller {
                 $user->password = \System\Password::hash($plain);
                 $mapper->save();
                 
+                \System\Session::stop();
+                
                 $ajax->ajax_popup('Успешно', 'На указанный E-mail выслан новый пароль');
             }
         }

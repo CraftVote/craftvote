@@ -17,7 +17,7 @@ class Register extends \Form\AbstractModel {
         $this->action('/auth/register');
         $this->horizontal();
         $this->setTitle("Регистрация");
-        $this->setLabelLen(2)->setFieldLen(5);
+        $this->setLabelLen(3)->setFieldLen(5);
         
         $this->appendElement(new \UI\SingleRowText('name', 'Ваше имя', true));
         $email = new \UI\Email('email', 'E-mail', true);
@@ -28,6 +28,7 @@ class Register extends \Form\AbstractModel {
         $pass->setEqualField("password");
         $this->appendElement($pass);
         $this->appendElement(new \UI\Captcha('captcha', 'Код'));
+        $this->appendHr();
         $this->appendButton(new \UI\Button\RegistryButton());        
     }
 }
