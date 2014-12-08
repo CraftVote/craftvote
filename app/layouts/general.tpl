@@ -8,6 +8,7 @@
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="/res/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="/res/css/bootstrap-theme.css">
+        <link rel="stylesheet" type="text/css" href="/res/css/custom.css">
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>

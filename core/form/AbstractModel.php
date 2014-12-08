@@ -59,7 +59,7 @@ abstract class AbstractModel {
         $this->renderForm();
         $at = new ConstructAttributes();
         $at->importArray($this->attributes);
-        $html = '<form '.$at->render().'>';
+        $html = '<div id="alert-area"></div><form '.$at->render().'>';
         foreach ($this->elements as $element){
             if ($element->getType() !== ElementTypes::DESIGN){
                 $html .= '<div class="form-group has-feedback"><label class="col-sm-'.$this->label_len.' control-label">'.$element->getLabel().'</label><div class="col-sm-'.$this->field_len.'">';

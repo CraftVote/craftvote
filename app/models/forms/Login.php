@@ -25,7 +25,7 @@ class Login extends \Form\AbstractModel {
         
         $this->appendElement(new \UI\Email('email', 'E-mail', true));
         $this->appendElement(new \UI\Password('password', 'Пароль'));
-        //$this->appendElement(new \UI\SocialNetworksAuth('http://'.$_SERVER['HTTP_HOST'].'/auth/sn'));
+        $this->appendElement(new \UI\StaticText('', '<small class="pull-right"><a href="/auth/recovery">Забыли пароль?</a></small>'));
         $this->appendButton(new \UI\Button\LoginButton());
     }
 }
