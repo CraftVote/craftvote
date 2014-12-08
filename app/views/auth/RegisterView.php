@@ -15,6 +15,7 @@ class RegisterView extends \System\HtmlView {
     public function execute() {
         $this->layout("general");
         $this->title("Регистрация");
+        $this->pageHeader('Регистрация');
         $form = new Models\Forms\Register();
         $this->body($form->getHtml());
         
