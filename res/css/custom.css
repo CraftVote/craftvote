@@ -16,3 +16,9 @@ and open the template in the editor.
     color: #e15757;
     font-size: 0.9em;
 }
+
+#main-modal h3{
+    padding: 0;
+    margin: 0;
+    color: #777;
+}

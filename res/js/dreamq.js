@@ -470,7 +470,7 @@ Modal = {
         this.clearForms();
         this.createLayout();
         this.show();
-        this.setHeader('<h2>'+title+'</h2>');
+        this.setHeader('<h3>'+title+'</h3>');
         this.setBody('<p>'+body+'</p>');
         this.appendToFooter(' <button type="button" class="btn btn-default btn-width-sm" data-dismiss="modal">Ok</button>');
     },
@@ -526,7 +526,7 @@ Modal = {
     },
     
     formcallback : function(data){
-        Modal.setHeader('<h2>'+data.title+'</h2>');
+        Modal.setHeader('<h3>'+data.title+'</h3>');
         Modal.setBody(Modal.jsonToHtmlForm(data));
         Modal.appendToFooter(Modal.jsonToHtmlButtons(data.buttons));
         Modal.appendToFooter('<button type="button" class="btn btn-default btn-width-sm" data-dismiss="modal">Отмена</button>');
