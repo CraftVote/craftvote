@@ -21,10 +21,14 @@ class Login extends \Form\AbstractModel {
         $this->action('/auth/login');
         $this->horizontal();
         $this->setTitle('Авторизация');
-        $this->setLabelLen(2)->setFieldLen(9);
+        $this->setLabelLen(1)->setFieldLen(10);
         
-        $this->appendElement(new \UI\Email('email', 'E-mail', true));
-        $this->appendElement(new \UI\Password('password', 'Пароль'));
+        $email = new \UI\Email('email', '', true);
+        $email->setPlaceholder('E-mail');
+        $this->appendElement($email);
+        $password = new \UI\Password('password', '');
+        $password->setPlaceholder('Пароль');
+        $this->appendElement($password);
         $this->appendElement(new \UI\StaticText('', '<small class="pull-right"><a href="/auth/recovery">Забыли пароль?</a></small>'));
         $this->appendButton(new \UI\Button\LoginButton());
     }
