@@ -30,27 +30,26 @@ class Identity {
             return false;
         }
 
-        \Auth\User::registry($user);
+        \Auth\User::auth($user);
         $user->clear();
-        $user->session = \Auth\User::getSessionHash();
-        //$mapper->save();
+        $user->session = session_id();
+        $mapper->save();
         return true;
     }
     
     
     static public function logout(){
-        \Auth\User::unregistry();
+        \System\Session::stop();
     }
     
     
-    static public function registry($email, $password, $fullname, $role){
+    static public function registry($email, $password, $name){
         
-        $user = new \DbTable\Users();
+        $user = new \Models\Tables\Users();
         $mapper = new \DB\SQL\DataMapper($user);
         $user->email = $email;
         if (!$mapper->find()){
-            $user->fullname = $fullname;
-            $user->role = $role;
+            $user->name = $name;
             $user->password = \System\Password::hash($password);
             $mapper->save();
             return true;

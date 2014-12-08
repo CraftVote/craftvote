@@ -17,6 +17,9 @@ class FrontController {
     
     protected function init(){
         
+        \System\Logger::init();
+        \System\Session::init();
+        
         $config = \System\ApplicationRegistry::getConfig();
         
         ini_set('display_errors','0');
@@ -36,8 +39,6 @@ class FrontController {
         date_default_timezone_set($config->timezone);
         ini_set('default_charset', 'UTF-8');
         ini_set("zlib.output_compression", 'on');
-        \System\Logger::init();
-        \Auth\User::init();
     }
     
     protected function checkAccess($role, \System\CommandContext $request, $is_ajax){

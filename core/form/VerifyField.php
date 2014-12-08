@@ -134,10 +134,9 @@ class VerifyField {
     }
     
     static public function captcha($input){
-        return ($input === $_SESSION['captcha']);
+        return ($input === \System\Session::get('captcha'));
     }
 
-    
     static public function dir($text)
     {
         if (is_dir($text)){

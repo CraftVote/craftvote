@@ -28,6 +28,6 @@ class LoginController extends \System\Controller {
     }
     
     public function allowAccess() {
-        ;
+        return NULL;
     }
 }

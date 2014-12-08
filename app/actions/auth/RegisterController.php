@@ -21,11 +21,8 @@ class RegisterController extends \System\Controller {
         $ajax = new \System\Ajax();
         $input = $ajax->ajax_validate_form(new \Models\Forms\Register());
         if($input){
-            $user = new \Models\Tables\Users();
-            $user->assignFromArray($input);
-            $user->password = \System\Password::hash($user->password);
-            $dm = new \DB\SQL\DataMapper($user);
-            $dm->save();
+            \Auth\Identity::registry($input['email'], $input['password'], $input['name']);
+            \System\Session::stop();
             $ajax->ajax_redirect("/");
         }
         $this->setAjax($ajax);

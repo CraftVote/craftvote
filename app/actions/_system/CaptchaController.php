@@ -16,10 +16,8 @@ class CaptchaController extends \System\Controller {
     public function get() {
         
         $captcha = new \Captcha\KCaptcha();
-        if (session_status() === PHP_SESSION_NONE){
-            session_start();
-        }
-        $_SESSION['captcha'] = $captcha->getKeyString();
+        \System\Session::startNew();
+        \System\Session::set('captcha', $captcha->getKeyString());
         $this->close();
     }
     
