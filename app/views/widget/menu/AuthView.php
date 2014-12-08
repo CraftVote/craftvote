@@ -17,8 +17,13 @@ class AuthView extends \System\View {
         $menu = new \UI\Menu('CraftVote');
         $menu->activeButton(filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING));
         $menu->addLeftButton('Новости проекта', '/news');
-        $menu->addRightButton('<span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.\Auth\User::getName(), '/profile');
-        $menu->addRightButton('<span title="Выйти" class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Выйти', '/auth/logout');
+        $items = array(
+            'Профиль'=>'/profile',
+            'Сменить пароль'=>'/chpass',
+            'divider' => NULL,
+            '<span title="Выйти" class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Выйти'=>'/auth/logout'
+        );
+        $menu->addRightDropdown('<span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.\Auth\User::getName(), $items);
         $this->body($menu->getHtml());
     }
 }

@@ -47,6 +47,24 @@ class Menu {
         }
     }
     
+    public function addRightDropdown($label, $items){
+        
+        $html = '';
+        foreach ($items as $title => $link){
+            if ($title === 'divider')
+            {
+                $html .= '<li class="divider"></li>';
+            }
+            else{
+                $html .= '<li><a href="'.$link.'">'.$title.'</a></li>';
+            }
+        }
+        $this->right[] = '<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">'.$label.' <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">'.$html.'</ul>
+                          </li>';
+    }
+
     public function getHtml(){
         return '<nav class="navbar navbar-default" role="navigation">
                     <div class="container-fluid">
