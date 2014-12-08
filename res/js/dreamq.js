@@ -431,7 +431,10 @@ Alert = {
         var color_class = 'alert-success';
         switch(color){
             case 2: color_class = 'alert-warning'; break;
-            case 3: color_class = 'alert-danger'; break;
+            case 3:
+                color_class = 'alert-danger';
+                text = '<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> '+text;
+                break;
             case 4: color_class = 'alert-info'; break;
         }
         $(selector).html('<div class="alert '+color_class+' alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>'+text+'</div>');
