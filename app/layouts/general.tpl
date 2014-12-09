@@ -32,6 +32,7 @@
                     </div>
                     <div id="rside" class="col-md-2 col-sm-3">
                         <div class="row">
+                            <hr class="hidden-sm hidden-md hidden-lg">
                             <div class="col-sm-12 col-xs-6">
                             <!--[widget/recommended]-->
                             <hr class="hidden-xs">
