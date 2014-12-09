@@ -11,12 +11,12 @@
  *
  * @author Anonymous
  */
-class RegisterView extends \System\HtmlView {
+class RegistryView extends \System\HtmlView {
     public function execute() {
         $this->layout("general");
         $this->title("Регистрация");
         $this->pageHeader('Регистрация');
-        $form = new Models\Forms\Register();
+        $form = new Models\Forms\Registry();
         $this->body($form->getHtml());
         
     }

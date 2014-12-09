@@ -8,17 +8,59 @@ and open the template in the editor.
     Author     : ishibkikh
 */
 
-.btn-width-sm {
-    width: 7em;
+body {
+    background-image: url(img/bg.png);
 }
 
-.form-error-text {
-    color: #e15757;
+#main-content-area{
+    background-color: #fff;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(50, 50, 50, 0.15);
+    -moz-box-shadow:    5px 5px 5px 0px rgba(50, 50, 50, 0.15);
+    box-shadow:         5px 5px 5px 0px rgba(50, 50, 50, 0.15);
+}
+
+#topbanners-line {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#footer {
+    text-align: center;
+    padding-top: 15px;
     font-size: 0.9em;
+    color: #aaa;
+    padding-bottom: 5px;
 }
 
 #main-modal h3{
     padding: 0;
     margin: 0;
     color: #777;
+}
+
+h1, h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+.banner {
+    border: 1px solid #bbb;
+}
+
+a.list-group-item {
+    color: #0b5fa0;
+}
+
+#rside {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#mside {
+    border-right: 1px dotted #eee;
+    min-height: 400px;
 }

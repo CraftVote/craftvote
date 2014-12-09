@@ -11,7 +11,7 @@
  *
  * @author Anonymous
  */
-class RegisterController extends \System\Controller {
+class RegistryController extends \System\Controller {
     public function get(){
        
     }
@@ -19,7 +19,7 @@ class RegisterController extends \System\Controller {
     public function post(){
         
         $ajax = new \System\Ajax();
-        $input = $ajax->ajax_validate_form(new \Models\Forms\Register());
+        $input = $ajax->ajax_validate_form(new \Models\Forms\Registry());
         if($input){
             \Auth\Identity::registry($input['email'], $input['password'], $input['name']);
             \System\Session::stop();

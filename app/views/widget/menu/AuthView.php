@@ -14,7 +14,7 @@
 class AuthView extends \System\View {
     
     public function execute() {
-        $menu = new \UI\Menu('CraftVote');
+        $menu = new \UI\Menu('CRAFT<b class="text-info">VOTE</b>.RU');
         $menu->activeButton(filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING));
         $menu->addLeftButton('Новости проекта', '/news');
         $items = array(

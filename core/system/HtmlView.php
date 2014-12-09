@@ -52,6 +52,10 @@ abstract class HtmlView extends View {
         $this->body('<br>');
     }
     
+    public function img($src, $alt, $href = '#'){
+        $this->body('<a href="'.$href.'"><img class="img-responsive img-rounded" src="'.$src.'" alt="'.$alt.'"></a>');
+    }
+    
     public function default_text($text){
         $this->body('<div class="col-sm-12"><p class="text-muted">'.$text.'</p></div>');
     }

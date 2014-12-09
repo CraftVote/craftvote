@@ -18,7 +18,7 @@ class RegistryButton extends AbstractButton  {
     public function __construct() {
         parent::__construct();
         $this->setTitle('Регистрация');
-        $this->setGreenColor();
+        $this->setBlueColor();
         $this->submit();
     }
 }

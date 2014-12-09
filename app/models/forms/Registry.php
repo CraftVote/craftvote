@@ -11,10 +11,10 @@ namespace Models\Forms;
  *
  * @author Anonymous
  */
-class Register extends \Form\AbstractModel {
+class Registry extends \Form\AbstractModel {
     public function renderForm() {
-        $this->name("register");
-        $this->action('/auth/register');
+        $this->name("registry");
+        $this->action('/auth/registry');
         $this->horizontal();
         $this->setTitle("Регистрация");
         $this->setLabelLen(3)->setFieldLen(5);
