@@ -18,7 +18,7 @@ class AuthView extends \System\View {
         $menu->activeButton(filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING));
         $menu->addLeftButton('Новости проекта', '/news');
         $items = array(
-            'Профиль'=>'/profile',
+            'Профиль'=>'/profile/'.\Auth\User::getId(),
             'Сменить пароль'=>'/chpass',
             'divider' => NULL,
             '<span title="Выйти" class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Выйти'=>'/auth/logout'

@@ -16,7 +16,7 @@ class Page404View extends \System\HtmlView {
     public function execute() {
         $this->layout('general');
         $this->title('Страница не найдена');
-        $this->h1('Страница не найдена');
+        $this->pageHeader('Страница не найдена');
         $this->h4(filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING));
         $this->p('Возможно страница была изменена или удалена');
     }

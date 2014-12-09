@@ -7,7 +7,6 @@ and open the template in the editor.
     Created on : 08.12.2014, 16:33:26
     Author     : ishibkikh
 */
-
 body {
     background-image: url(img/bg.png);
 }
@@ -41,6 +40,11 @@ h1, h2 {
     font-weight: 300;
 }
 
+.border-red {
+    border: 1px solid red;
+    height: auto;
+}
+
 img.banner {
     border: 1px solid #bbb;
     margin-top: 5px;
@@ -64,4 +68,13 @@ a.list-group-item {
 .pull-center {
     display: table;
     margin: 0 auto;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 9px;
+}
+
+.align-bottom {
+    margin-top: 30px;
 }
