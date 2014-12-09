@@ -25,24 +25,24 @@
     <body>
         <!--[widget/menu]-->
         <!--[widget/topbanners]-->
-        <div id="main-content-area" class="container">
-            <div class="row">
-                <div id="mside" class="col-md-10 col-sm-9">
-                    <!--BODY-->
-                </div>
-                <div id="rside" class="col-md-2 col-sm-3">
-                    <div class="row">
-                        <div class="col-sm-12 col-xs-6">
-                        <!--[widget/recommended]-->
-                        <hr class="hidden-xs">
-                        </div>
-                        <div class="col-sm-12 col-xs-6">
-                        <!--[widget/rightbanner]-->
-                        </div>
-                    </div>    
+            <div id="main-content-area" class="container">
+                <div class="row">
+                    <div id="mside" class="col-md-10 col-sm-9">
+                        <!--BODY-->
+                    </div>
+                    <div id="rside" class="col-md-2 col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-6">
+                            <!--[widget/recommended]-->
+                            <hr class="hidden-xs">
+                            </div>
+                            <div class="col-sm-12 col-xs-6">
+                            <!--[widget/rightbanner]-->
+                            </div>
+                        </div>    
+                    </div>
                 </div>
             </div>
-        </div>
         <div id="footer">
           © 2014 CraftVote.Ru All Rights Reserved
         </div>

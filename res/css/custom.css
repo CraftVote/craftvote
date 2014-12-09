@@ -22,12 +22,6 @@ body {
     box-shadow:         5px 5px 5px 0px rgba(50, 50, 50, 0.15);
 }
 
-#topbanners-line {
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
 #footer {
     text-align: center;
     padding-top: 15px;
@@ -47,8 +41,10 @@ h1, h2 {
     font-weight: 300;
 }
 
-.banner {
+img.banner {
     border: 1px solid #bbb;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 a.list-group-item {
@@ -63,4 +59,9 @@ a.list-group-item {
 #mside {
     border-right: 1px dotted #eee;
     min-height: 400px;
+}
+
+.pull-center {
+    display: table;
+    margin: 0 auto;
 }

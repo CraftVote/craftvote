@@ -1,24 +1,16 @@
-<div id="topbanners-line" class="row">
-    <div class="col-xs-6 col-md-2 "></div>
-    <div class="col-xs-6 col-md-2 ">
-        <a href="#">
-            <img class="banner img-rounded" alt="banner" src="/res/img/banners/topbanner_1.png">
-        </a>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-xs-6">
+            <img class="banner img-rounded img-responsive pull-center" alt="banner" src="/res/img/banners/topbanner_1.png">
+        </div>
+        <div class="col-sm-3 col-xs-6">
+            <img class="banner img-rounded img-responsive pull-center" alt="banner" src="/res/img/banners/topbanner_1.png">
+        </div>
+        <div class="col-sm-3 col-xs-6">
+            <img class="banner img-rounded img-responsive pull-center" alt="banner" src="/res/img/banners/topbanner_1.png">
+        </div>
+        <div class="col-sm-3 col-xs-6">
+            <img class="banner img-rounded img-responsive pull-center" alt="banner" src="/res/img/banners/topbanner_1.png">
+        </div>
     </div>
-    <div class="col-xs-6 col-md-2">
-        <a href="#">
-            <img class="banner img-rounded" alt="banner" src="/res/img/banners/topbanner_1.png">
-        </a>
-    </div>
-    <div class="col-xs-6 col-md-2">
-        <a href="#">
-            <img class="banner img-rounded" alt="banner" src="/res/img/banners/topbanner_1.png">
-        </a>
-    </div>
-    <div class="col-xs-6 col-md-2">
-        <a href="#">
-            <img class="banner img-rounded" alt="banner" src="/res/img/banners/topbanner_1.png">
-        </a>
-    </div>
-    <div class="col-xs-6 col-md-2 "></div>
 </div>
