@@ -29,7 +29,7 @@ class AuthView extends \System\View {
         );
         $menu->addRightButton('<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 0', '#');
         $menu->addRightButton('<span class="glyphicon glyphicon-usd" aria-hidden="true"></span> 0', '#');
-        $menu->addRightDropdown('<span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.\Auth\User::getName(), $items);
+        $menu->addRightDropdown('<span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.\Auth\User::getName().' <span class="label label-info">Admin</span>', $items);
         $this->body($menu->getHtml());
     }
 }
