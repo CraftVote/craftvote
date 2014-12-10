@@ -1,11 +1,11 @@
 <div class="row">
-    <div class="col-sm-9">
+    <div class="col-xs-9">
         <div class="row">
-            <div class="col-xs-2 text-center">
-                <img class="img-circle avatar" src="/res/img/profile/avatar/2.png">
+            <div class="col-xs-3 text-center">
+                <img class="img-circle avatar img-responsive pull-center" src="/res/img/profile/avatar/2.png">
                 <h4><span class="label label-success">online</span></h4>
             </div>
-            <div class="col-xs-10">
+            <div class="col-xs-9">
                 <h1><b><!--NAME--></b></h1>
                 <p class="profile-role"> Администратор</p>
                 <h4 class="text-default"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <i>Наши сервера самые крутые в стране. Успехов в игре!</i></h4>
@@ -36,7 +36,7 @@
             </tr>
         </table>
     </div>
-    <div class="col-sm-3 text-right padding-top">
+    <div class="col-xs-3 text-right padding-top">
         <p><button class="btn btn-primary btn-sm btn-width-md"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Сообщение</button></p>
         <p><button class="btn btn-success btn-sm btn-width-md"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Нравится</button></p>
         <p><button class="btn btn-info btn-sm btn-width-md"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Подписаться</button></p>
