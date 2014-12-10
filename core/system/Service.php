@@ -82,6 +82,7 @@ class Service {
         if ($this->request->isError()){
             return '{'.$this->request->getError().'}';
         }
+        $this->request->setBuffer(str_replace('<!--BODY-->', '', $this->request->getBuffer()));
         return $this->request->getBuffer();
     }
     

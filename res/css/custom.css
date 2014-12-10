@@ -78,3 +78,44 @@ a.list-group-item {
 .align-bottom {
     margin-top: 30px;
 }
+
+.user-bgimage {
+    z-index: -1;
+    display: block;
+    left:0;
+    right:0;
+    margin:auto;
+    border-bottom: 1px solid #777;
+}
+
+.profile-area {
+    margin-top: -4.8em;
+    z-index: 5;
+}
+
+.avatar {
+    border: 1px solid #777;
+    background-color: #fff;
+    width: 10em;
+}
+
+.text-default {
+    color: #000;
+}
+
+.text-padding {
+    padding-left: 1em;
+}
+
+.profile-role {
+    margin-top: 1em;
+    border: 1px solid #ddd;
+    display: inline-block;
+    padding: 1px 6px;
+    color: #999;
+    font-size: 0.9em;
+}
+
+.padding-top {
+    padding-top: 5.7em;
+}

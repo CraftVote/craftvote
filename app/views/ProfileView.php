@@ -18,18 +18,19 @@ class ProfileView extends \System\HtmlView {
         $user = $this->getParam('user');
         $mine = $this->getParam('mine');
         
-        $this->layout('general');
-        $this->title('Профиль');
+        $this->layout('profile');
+        $this->title($user->name);
         $this->template('profile');
-        $this->setRegButton($mine);
+        //$this->setRegButton($mine);
         $this->setUserInfo($user);
     }
     
     protected function setUserInfo(\Models\Tables\Users $user){
         $this->write('NAME', $user->name);
-        $this->write('DATEREG', $user->date_create);
-        $this->write('DATEVISIT', \System\Session::getLastVisitDate($user->session));
-        $this->write('ROLE', $user->role);
+        //$this->write('DATEREG', $user->date_create);
+        //$this->write('DATEVISIT', \System\Session::getLastVisitDate($user->session));
+        //$this->write('ROLE', $user->role);
+        $this->write('USERBG', '/res/img/profile/bg/2.jpg');
     }
     
     protected function setRegButton($mine){

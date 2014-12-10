@@ -12,6 +12,10 @@ and open the template in the editor.
     width: 7em;
 }
 
+.btn-width-md {
+    width: 10em;
+}
+
 .form-error-text {
     color: #e15757;
     font-size: 0.9em;

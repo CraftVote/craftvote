@@ -18,7 +18,7 @@ class LoginController extends \System\Controller {
         $input = $ajax->ajax_validate_form(new \Models\Forms\Login());
         if ($input){
             if (\Auth\Identity::login($input['email'], $input['password'])){
-                $ajax->ajax_redirect('/');
+                $ajax->ajax_redirect('/profile/'.\Auth\User::getId());
             }
             else{
                 $ajax->ajax_red_alert('Неверное имя пользователя или пароль');

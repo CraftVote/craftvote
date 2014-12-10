@@ -28,8 +28,15 @@ abstract class View {
     }
 
     protected function append($param, $value){
-        $string = $value.PHP_EOL.'<!--'.strtoupper($param).'-->';
-        $this->write($param, $string);
+        if ($param === NULL){
+            $this->write(NULL, $value.PHP_EOL.'<!--BODY-->');
+            $this->selector = 'BODY';
+        }
+        else
+        {
+            $string = $value.PHP_EOL.'<!--'.strtoupper($param).'-->';
+            $this->write($param, $string);
+        }
     }
     
     public function body($value){
