@@ -23,9 +23,9 @@
         <title><!--H_TITLE--></title>
     </head>
     <body>
-        <!--[widget/menu]-->
-        <!--[widget/topbanners]-->
             <div id="main-content-area" class="container">
+                <!--[widget/menu]-->
+                <!--[widget/topbanners]-->
                 <div class="row">
                     <div id="mside" class="col-md-10 col-sm-9">
                         <!--BODY-->

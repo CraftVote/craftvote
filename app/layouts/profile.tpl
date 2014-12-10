@@ -23,8 +23,8 @@
         <title><!--H_TITLE--></title>
     </head>
     <body>
-        <!--[widget/menu]-->
             <div id="main-content-area" class="container">
+                <!--[widget/menu]-->
                 <!--[widget/profilebg]-->
                 <!--BODY-->
             </div>
