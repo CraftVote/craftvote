@@ -24,8 +24,8 @@
     </head>
     <body>
         <!--[widget/menu]-->
-        <!--[widget/profilebg]-->
-            <div id="main-content-area" class="container profile-area">
+            <div id="main-content-area" class="container">
+                <!--[widget/profilebg]-->
                 <!--BODY-->
             </div>
         <div id="footer">

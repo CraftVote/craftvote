@@ -82,9 +82,6 @@ a.list-group-item {
 .user-bgimage {
     z-index: -1;
     display: block;
-    left:0;
-    right:0;
-    margin:auto;
     border-bottom: 1px solid #777;
 }
 

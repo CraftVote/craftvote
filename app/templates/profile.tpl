@@ -1,4 +1,7 @@
-<div class="row">
+<div class="row user-bgimage">
+    <img class="img-responsive" src="<!--USERBG-->">
+</div>
+<div class="row profile-area">
     <div class="col-xs-9">
         <div class="row">
             <div class="col-xs-3 text-center">

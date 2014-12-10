@@ -14,6 +14,6 @@
 class ProfilebgView extends \System\View{
     
     public function execute() {
-        $this->body('<img class="img-responsive user-bgimage pull-center" src="<!--USERBG-->">');
+        
     }
 }
