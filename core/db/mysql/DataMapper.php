@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace DB\SQL;
+namespace DB\MySQL;
 
 /**
  * Description of DataMapper
@@ -27,7 +27,7 @@ class DataMapper
         $props   = $reflect->getProperties();
         $raw = explode('\\', $props[0]->class);
         $this->table = strtolower($raw[count($raw)-1]);
-        $this->request = new \DB\SQL\RequestBuilder(\DB\SQL\MySqlConnector::getInstance());
+        $this->request = new \DB\MySQL\RequestBuilder(\DB\MySQL\Connector::getInstance());
         $this->entity = $entity;
     }
     
@@ -36,7 +36,8 @@ class DataMapper
     }
 
     public function findById($id){
-        $result = $this->request->from($this->table)->where(array($this->entity->getPrimaryKey() => $id))->fetchOne();
+        $sql = 'SELECT * FROM '.$this->table.' WHERE '.$this->entity->getPrimaryKey().' = '.$id. ' LIMIT 1';
+        $result = \DB\MySQL\Executor::fetchOne($sql);
         if (!$result){
             return false;
         }

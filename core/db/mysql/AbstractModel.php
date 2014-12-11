@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace DB\SQL;
+namespace DB\MySQL;
 
 /**
  * Description of Model

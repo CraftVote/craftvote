@@ -15,7 +15,7 @@ class FrontController {
     
     private function __construct(){}
     
-    protected function init(){
+    protected function onInit(){
         
         \System\Logger::init();
         \System\Session::init();
@@ -40,6 +40,13 @@ class FrontController {
         ini_set('default_charset', 'UTF-8');
         ini_set("zlib.output_compression", 'on');
     }
+    
+    
+    protected function onEnd(){
+        
+        \DB\MySQL\Connector::disconect();
+    }
+    
     
     protected function checkAccess($role, \System\CommandContext $request, $is_ajax){
         if ($role === null){
@@ -78,7 +85,7 @@ class FrontController {
 
     static public function run(){
         $instance = new self();
-        $instance->init();
+        $instance->onInit();
         $service = new \System\Service();
         $context = $service->getContext();
         if ($context->getResponseCode() === 404){
@@ -96,6 +103,7 @@ class FrontController {
         if ((!headers_sent())and(!$context->isCloseRunning())){
             new \System\Transmitter($context);
         }
+        $instance->onEnd();
         exit;
     }
 }
