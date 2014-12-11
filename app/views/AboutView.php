@@ -17,5 +17,6 @@ class AboutView extends \System\HtmlView {
         $this->layout('general');
         $this->title('О нас');
         $this->pageHeader('О нас');
+         $this->template('nav');
     }
 }
