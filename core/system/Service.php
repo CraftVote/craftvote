@@ -67,7 +67,7 @@ class Service {
             return;
         }
         $this->handleRequest($this->request);
-        if ($this->request->getResponseCode() === 401){
+        if (($this->request->getResponseCode() === 401)and($this->request->getAction() !== 'page401')){
             $this->request->setBuffer('<p class="bg-danger">401 Unauthorized</p>');
             return;
         }

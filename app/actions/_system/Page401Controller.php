@@ -16,7 +16,6 @@ class Page401Controller extends \System\Controller {
     public function get() {
         
         $this->responseCode(401);
-        return true;
     }
     
     public function allowAccess() {
