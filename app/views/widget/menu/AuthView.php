@@ -30,8 +30,8 @@ class AuthView extends \System\View {
             '0' => 'divider',
             '<span title="Выйти" class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Выйти'=>'/auth/logout'
         );
-        $menu->addRightButton('<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 0', '#');
-        $menu->addRightButton('<span class="glyphicon glyphicon-usd" aria-hidden="true"></span> 0', '#');
+        $menu->addRightButton('<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 0', '/mail');
+        $menu->addRightButton('<span class="glyphicon glyphicon-usd" aria-hidden="true"></span> 0', '/balance');
         $menu->addRightDropdown('<span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.\Auth\User::getName().' <span class="label label-info">Admin</span>', $items);
         $this->body($menu->getHtml());
     }

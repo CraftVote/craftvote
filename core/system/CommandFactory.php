@@ -13,7 +13,7 @@ namespace System;
  *
  * @author ishibkikh
  */
-class CommandFactory {
+final class CommandFactory {
     
     static public function getCommand(\System\CommandContext $context){
         

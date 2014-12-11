@@ -13,7 +13,7 @@ namespace System;
  *
  * @author ishibkikh
  */
-class CommandContext extends \System\Context{
+final class CommandContext extends \System\Context{
     
     public function __construct() {
         $this->setCharset('utf-8');

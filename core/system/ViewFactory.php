@@ -13,7 +13,7 @@ namespace System;
  *
  * @author Ivan
  */
-class ViewFactory {
+final class ViewFactory {
     
     static function getView(\System\CommandContext $request){
         $action = $request->getAction();
