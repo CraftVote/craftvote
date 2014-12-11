@@ -51,7 +51,7 @@ class Menu {
         
         $html = '';
         foreach ($items as $title => $link){
-            if ($title === 'divider')
+            if ($link === 'divider')
             {
                 $html .= '<li class="divider"></li>';
             }

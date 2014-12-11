@@ -20,13 +20,14 @@ class AuthView extends \System\View {
         $menu->addLeftButton('О нас', '/about');
         $menu->addLeftButton('Контакты', '/contacts');
         $items = array(
-            'Профиль'=>'/profile/'.\Auth\User::getId(),
-            'Мой проект'=>'/myproject',
-            'Мои новости'=>'/mynews',
-            'Реклама'=>'/adv',
-            'Настройки'=>'/settings',
-            'Смена пароля'=>'/chpass',
-            'divider' => NULL,
+            '<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Мой профиль'=>'/profile/'.\Auth\User::getId(),
+            '<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Мой проект'=>'/myproject',
+            '<span class="glyphicon glyphicon-send" aria-hidden="true"></span> Мои новости'=>'/mynews',
+            '<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Моя реклама'=>'/myadv',
+            '1' => 'divider',
+            '<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Управление сайтом'=>'/manage',
+            '<span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span> Смена пароля'=>'/chpass',
+            '0' => 'divider',
             '<span title="Выйти" class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Выйти'=>'/auth/logout'
         );
         $menu->addRightButton('<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 0', '#');
