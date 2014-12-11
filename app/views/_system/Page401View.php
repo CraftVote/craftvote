@@ -11,12 +11,12 @@
  *
  * @author Ivan
  */
-class Page403View extends \System\HtmlView {
+class Page401View extends \System\HtmlView {
     
     public function execute() {
         $this->layout('general');
         $this->title('Доступ закрыт');
         $this->h1('Доступ закрыт');
-        $this->p('Вы не имеете прав для просмотра этой страницы');
+        $this->p('Для просмотра страницы необходимо авторизоваться или получить более привилегированные права доступа');
     }
 }

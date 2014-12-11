@@ -40,14 +40,17 @@ class Service {
         $this->request = new \System\CommandContext();
         $router = new Router($this->request);
         $router->assignFromURL();
-        if ($this->request->getResponseCode() !== 404){
-            $this->handleRequest($this->request);
-            if (!$this->request->isComplited()){
-                $this->handleView($this->request);
-            }
-        }
-        else{
+        if ($this->request->getResponseCode() === 404){
             $this->request->setBuffer('<p class="bg-danger">404 Page Not Found</p>');
+            return;
+        }
+        $this->handleRequest($this->request);
+        if ($this->request->getResponseCode() === 401){
+            $this->request->setBuffer('<p class="bg-danger">401 Unauthorized</p>');
+            return;
+        }
+        if (!$this->request->isComplited()){
+           $this->handleView($this->request);
         }
     }
     
@@ -59,14 +62,17 @@ class Service {
         $this->request = new \System\CommandContext();
         $router = new Router($this->request);
         $router->assignFromString($string);
-        if ($this->request->getResponseCode() !== 404){
-            $this->handleRequest($this->request);
-            if (!$this->request->isComplited()){
-                $this->handleView($this->request);
-            }
+        if ($this->request->getResponseCode() === 404){
+            $this->request->setBuffer('<p class="bg-danger">404 Page Not Found</p>');
+            return;
         }
-        else{
-            $this->request->setBuffer('<p class="bg-danger">404 Service Not Found</p>');
+        $this->handleRequest($this->request);
+        if ($this->request->getResponseCode() === 401){
+            $this->request->setBuffer('<p class="bg-danger">401 Unauthorized</p>');
+            return;
+        }
+        if (!$this->request->isComplited()){
+            $this->handleView($this->request);
         }
     }
     
@@ -106,6 +112,13 @@ class Service {
         $cmd = \System\CommandFactory::getCommand($request);
         if (!is_subclass_of($cmd, '\System\Controller')){
             throw new \System\Exception('Class "'.get_class($cmd).'" should be executable');
+        }
+        $access = $cmd->allowAccess();
+        if ($access !== NULL){
+            if (\Auth\User::getRoleId($access) < \Auth\User::getRoleId()){
+                $request->setResponseCode(401);
+                return;
+            }
         }
         if ($request->isPostMethod()){
             $this->executeMethod($cmd, 'post', $request->getUrlValues());

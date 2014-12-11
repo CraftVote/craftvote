@@ -81,6 +81,18 @@ class FrontController {
         $instance->init();
         $service = new \System\Service();
         $context = $service->getContext();
+        if ($context->getResponseCode() === 404){
+            unset($service);
+            unset($context);
+            $service = new \System\Service('/_system/page404');
+            $context = $service->getContext();
+        }
+        if ($context->getResponseCode() === 401){
+            unset($service);
+            unset($context);
+            $service = new \System\Service('/_system/page401');
+            $context = $service->getContext();
+        }
         if ((!headers_sent())and(!$context->isCloseRunning())){
             new \System\Transmitter($context);
         }

@@ -7,18 +7,16 @@
  */
 
 /**
- * Description of HelloworldView
+ * Description of MynewsView
  *
  * @author ishibkikh
  */
-class IndexView extends \System\HtmlView {
+class MynewsView extends \System\HtmlView {
     
     public function execute() {
         
-        $time = $this->getParam('time');
         $this->layout('general');
-        $this->title('Welcome');
-        $this->pageHeader('HMVC Web Application');
-        $this->p('Current time: '.$time);
+        $this->title('Мои новости');
+        $this->pageHeader('Мои новости');
     }
 }

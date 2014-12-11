@@ -7,18 +7,15 @@
  */
 
 /**
- * Description of HelloworldView
+ * Description of MyprojectView
  *
  * @author ishibkikh
  */
-class IndexView extends \System\HtmlView {
+class MyprojectView extends \System\HtmlView {
     
     public function execute() {
-        
-        $time = $this->getParam('time');
         $this->layout('general');
-        $this->title('Welcome');
-        $this->pageHeader('HMVC Web Application');
-        $this->p('Current time: '.$time);
+        $this->title('Мой проект');
+        $this->pageHeader('Мой проект');
     }
 }
