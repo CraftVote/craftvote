@@ -41,7 +41,14 @@ class Executor {
         $collection->close();
     }
     
-    static public function fetchAll($sql, $count = 0){
-        
+    static public function fetchAll($sql){
+        $collection = self::exeucute(\DB\MySQL\Connector::getInstance(), $sql);
+        if ($collection->num_rows === 0){
+            $result = false;
+        }
+        else{
+            $result = $collection->fetch_all();
+        }
+        $collection->close();
     }
 }
