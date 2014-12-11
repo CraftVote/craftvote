@@ -31,8 +31,7 @@ class Executor {
     
     static public function fetchOne($sql){
         
-        $dbh = \DB\MySQL\Connector::getInstance();
-        $collection = self::exeucute($dbh, $sql);
+        $collection = self::exeucute(\DB\MySQL\Connector::getInstance(), $sql);
         if ($collection->num_rows === 0){
             $result = false;
         }
@@ -40,6 +39,7 @@ class Executor {
             $result = $collection->fetch_array();
         }
         $collection->close();
+        return $result;
     }
     
     static public function fetchAll($sql){
@@ -51,6 +51,7 @@ class Executor {
             $result = $collection->fetch_all();
         }
         $collection->close();
+        return $result;
     }
     
     static public function insert($sql){

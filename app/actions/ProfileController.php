@@ -16,7 +16,7 @@ class ProfileController extends \System\Controller {
     public function get($id){
         
         $user = new \Models\Tables\Users();
-        $mapper = new \DB\SQL\DataMapper($user);
+        $mapper = new \DB\MySQL\DataMapper($user);
         if (!$mapper->findById(intval($id))){
             $this->pageNotFound();
         }

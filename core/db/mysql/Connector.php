@@ -21,11 +21,12 @@ class Connector {
  
         mysqli_report(MYSQLI_REPORT_ALL);
         $config = \System\ApplicationRegistry::getConfig();
-        self::$_instance = new \mysqli($config->db_host, $config->db_user, $config->db_password, $config->db_database);
-        if (!self::$_instance){
+        $dbh = new \mysqli($config->db_host, $config->db_user, $config->db_password, $config->db_database);
+        if (!$dbh){
             throw new \System\Exception('Unable connect to DB ('.$config->db_database.')');
         }
-        self::$_instance->set_charset("utf8");
+        $dbh->set_charset("utf8");
+        return $dbh;
     }
     
     public static function getInstance() {
@@ -36,7 +37,7 @@ class Connector {
         return self::$_instance;
     }
     
-    public static function disconect(){
+    public static function disconnect(){
         if (self::$_instance !== null)
         {
             self::$_instance->close();

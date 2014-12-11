@@ -44,7 +44,7 @@ class FrontController {
     
     protected function onEnd(){
         
-        \DB\MySQL\Connector::disconect();
+        \DB\MySQL\Connector::disconnect();
     }
     
     
