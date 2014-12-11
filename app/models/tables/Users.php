@@ -11,7 +11,7 @@ namespace Models\Tables;
  *
  * @author Ivan
  */
-class Users extends \DB\SQL\AbstractModel {
+class Users extends \DB\MySQL\AbstractModel {
     
     public $id;
     public $name;

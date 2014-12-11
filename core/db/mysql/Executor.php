@@ -31,7 +31,8 @@ class Executor {
     
     static public function fetchOne($sql){
         
-        $collection = self::exeucute(\DB\MySQL\Connector::getInstance(), $sql);
+        $dbh = \DB\MySQL\Connector::getInstance();
+        $collection = self::exeucute($dbh, $sql);
         if ($collection->num_rows === 0){
             $result = false;
         }
@@ -50,5 +51,27 @@ class Executor {
             $result = $collection->fetch_all();
         }
         $collection->close();
+    }
+    
+    static public function insert($sql){
+        $dbh = \DB\MySQL\Connector::getInstance();
+        self::exeucute($dbh, $sql);
+        if ($dbh->insert_id === 0){
+            return false;
+        }
+        else{
+            return $dbh->insert_id;
+        }
+    }
+    
+    static public function modify($sql){
+        $dbh = \DB\MySQL\Connector::getInstance();
+        self::exeucute($dbh, $sql);
+        if ($dbh->affected_rows === 0){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 }

@@ -22,7 +22,7 @@ class Connector {
         mysqli_report(MYSQLI_REPORT_ALL);
         $config = \System\ApplicationRegistry::getConfig();
         self::$_instance = new \mysqli($config->db_host, $config->db_user, $config->db_password, $config->db_database);
-        if (mysqli_connect_errno()){
+        if (!self::$_instance){
             throw new \System\Exception('Unable connect to DB ('.$config->db_database.')');
         }
         self::$_instance->set_charset("utf8");

@@ -16,18 +16,16 @@ namespace DB\MySQL;
 class DataMapper
 {
     private $table;
-    private $request;
     private $entity;
 
     public function __construct($entity) {
-        if (!is_subclass_of($entity, '\DB\SQL\AbstractModel')){
-            throw new \System\Exception('DataMapper can accept only subclasses of DB\\SQL\\AbstractModel ('.get_parent_class($entity).')');
+        if (!is_subclass_of($entity, '\DB\MySQL\AbstractModel')){
+            throw new \System\Exception('DataMapper can accept only subclasses of DB\\MySQL\\AbstractModel ('.get_parent_class($entity).')');
         }
         $reflect = new \ReflectionClass($entity);
         $props   = $reflect->getProperties();
         $raw = explode('\\', $props[0]->class);
         $this->table = strtolower($raw[count($raw)-1]);
-        $this->request = new \DB\MySQL\RequestBuilder(\DB\MySQL\Connector::getInstance());
         $this->entity = $entity;
     }
     
@@ -36,7 +34,7 @@ class DataMapper
     }
 
     public function findById($id){
-        $sql = 'SELECT * FROM '.$this->table.' WHERE '.$this->entity->getPrimaryKey().' = '.$id. ' LIMIT 1';
+        $sql = 'SELECT * FROM '.$this->table.' WHERE '.$this->entity->getPrimaryKey().' = '.$id. ' LIMIT 1;';
         $result = \DB\MySQL\Executor::fetchOne($sql);
         if (!$result){
             return false;
@@ -47,13 +45,14 @@ class DataMapper
         }
     }
     
-    public function find(){
-        $this->request->from($this->table)->where($this->entity);
-        return $this->request->fetchAll();
+    public function findAll(){
+        $sql = 'SELECT * FROM '.$this->table.' WHERE '. \DB\MySQL\Builder::condition($this->entity).' ORDER BY '.$this->entity->getPrimaryKey().';';
+        return \DB\MySQL\Executor::fetchAll($sql);
     }
     
     public function findOne(){
-        $result = $this->request->from($this->table)->where($this->entity)->fetchOne();
+        $sql = 'SELECT * FROM '.$this->table.' WHERE '. \DB\MySQL\Builder::condition($this->entity).' LIMIT 1;';
+        $result = \DB\MySQL\Executor::fetchOne($sql);
         if (!$result){
             return false;
         }
@@ -76,22 +75,20 @@ class DataMapper
     
     public function save(){
         if ($this->entity->getId() == null){
-            $this->request->insertInto($this->table)->values($this->entity)->exec();
-            $id = $this->request->getInsertId();
-            $this->entity->setId($id);
-            return $id;
+            $sql = 'INSERT INTO '.$this->table.' ('. \DB\MySQL\Builder::fields($this->entity).') VALUES ('. \DB\MySQL\Builder::values($this->entity).');';
+            $id = \DB\MySQL\Executor::insert($sql);
+            if ($id){
+                $this->entity->setId($id);
+                return $id;
+            }
+            else{
+                return false;
+            }
+            
         }
         else{
-            return $this->request->update($this->table)->values($this->entity)->where(array($this->entity->getPrimaryKey() => $this->entity->getId()))->exec();
+            $sql = 'UPDATE '.$this->table.' SET '.\DB\MySQL\Builder::items($this->entity).' WHERE '.$this->entity->getPrimaryKey().' = '.$this->entity->getId().';';
+            return \DB\MySQL\Executor::modify($sql);
         }
-    }
-    
-    public function findAll(){
-        return $this->request->from($this->table)->fetchAll();
-    }
-    
-    public function getRowsCount(){
-        $reuslt = $this->request->selectCount('count')->from($this->table)->fetchOne();
-        return $reuslt['count'];
     }
 }

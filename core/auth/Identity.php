@@ -19,7 +19,7 @@ class Identity {
         
         $user = new \Models\Tables\Users();
         $user->email = $username;
-        $mapper = new \DB\SQL\DataMapper($user);
+        $mapper = new \DB\MySQL\DataMapper($user);
         if (!$mapper->findOne()){
             return false;
         }
@@ -46,7 +46,7 @@ class Identity {
     static public function registry($email, $password, $name){
         
         $user = new \Models\Tables\Users();
-        $mapper = new \DB\SQL\DataMapper($user);
+        $mapper = new \DB\MySQL\DataMapper($user);
         $user->email = $email;
         if (!$mapper->find()){
             $user->name = $name;
