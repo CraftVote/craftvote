@@ -7,18 +7,15 @@
  */
 
 /**
- * Description of IndexController
+ * Description of AboutController
  *
  * @author ishibkikh
  */
-class IndexController extends \System\Controller {
+class AboutController extends \System\Controller {
     
-    public function get() {
-        $this->setParam('time', time());
-    }
+    public function get(){}
     
     public function allowAccess() {
         return NULL;
     }
-    
 }

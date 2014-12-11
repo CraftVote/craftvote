@@ -15,7 +15,7 @@ class NewsView extends \System\HtmlView {
     
     public function execute() {
         $this->layout('general');
-        $this->title('Новости проекта');
-        $this->pageHeader('Новости проекта');
+        $this->title('Новости');
+        $this->pageHeader('Новости');
     }
 }

@@ -7,18 +7,15 @@
  */
 
 /**
- * Description of IndexController
+ * Description of AboutView
  *
  * @author ishibkikh
  */
-class IndexController extends \System\Controller {
+class AboutView extends \System\HtmlView {
     
-    public function get() {
-        $this->setParam('time', time());
+    public function execute() {
+        $this->layout('general');
+        $this->title('О нас');
+        $this->pageHeader('О нас');
     }
-    
-    public function allowAccess() {
-        return NULL;
-    }
-    
 }

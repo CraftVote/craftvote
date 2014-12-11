@@ -7,18 +7,15 @@
  */
 
 /**
- * Description of IndexController
+ * Description of ContactsView
  *
  * @author ishibkikh
  */
-class IndexController extends \System\Controller {
+class ContactsView extends \System\HtmlView {
     
-    public function get() {
-        $this->setParam('time', time());
+    public function execute() {
+        $this->layout('general');
+        $this->title('Контакты');
+        $this->pageHeader('Контакты');
     }
-    
-    public function allowAccess() {
-        return NULL;
-    }
-    
 }

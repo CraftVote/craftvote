@@ -20,7 +20,7 @@
         <script language="javascript" type="text/javascript" src="/res/js/bootstrap.js"></script>
         <script language="javascript" type="text/javascript" src="/res/js/dreamq.js"></script>
         <!--H_SCRIPT-->
-        <title><!--H_TITLE--></title>
+        <title><!--H_TITLE--> | ТОП серверов Minecraft</title>
     </head>
     <body>
             <div id="main-content-area" class="container">
