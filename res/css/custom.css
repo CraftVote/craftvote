@@ -143,3 +143,8 @@ a.list-group-item {
 .text-top {
     vertical-align: text-top;
 }
+
+.btn-profile {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}

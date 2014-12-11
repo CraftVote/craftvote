@@ -12,9 +12,9 @@
             <p class="profile-role"> Администратор</p>
             <p class="text-muted"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Москва | <span class="glyphicon glyphicon-stats" aria-hidden="true"></span> 14 | <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 1048 | <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 137</p>
             <p>
-                <button class="btn btn-primary btn-sm btn-width-md"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Сообщение</button>
-                <button class="btn btn-success btn-sm btn-width-md"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Нравится</button>
-                <button class="btn btn-info btn-sm btn-width-md"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Подписаться</button>
+                <button class="btn btn-primary btn-sm btn-width-md btn-profile"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Сообщение</button>
+                <button class="btn btn-success btn-sm btn-width-md btn-profile"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Нравится</button>
+                <button class="btn btn-info btn-sm btn-width-md btn-profile"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Подписаться</button>
                 <button class="btn btn-warning btn-sm btn-width-md"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Пожаловаться</button>
             </p>
         </div>
