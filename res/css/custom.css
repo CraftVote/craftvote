@@ -48,11 +48,6 @@ h1, h2 {
     color: #000;
 }
 
-.border-red {
-    border: 1px solid red;
-    height: auto;
-}
-
 img.banner {
     border: 1px solid #ccc;
     margin-top: 5px;
@@ -73,16 +68,6 @@ a.list-group-item {
     min-height: 400px;
 }
 
-.pull-center {
-    display: table;
-    margin: 0 auto;
-}
-
-.border-bottom {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 9px;
-}
-
 .align-bottom {
     margin-top: 30px;
 }
@@ -99,30 +84,6 @@ a.list-group-item {
     z-index: 5;
 }
 
-.avatar {
-    border: 1px solid #bbb;
-    background-color: #fff;
-    width: 10em;
-}
-
-.avatar-mini {
-    border: 1px solid #bbb;
-    background-color: #fff;
-    width: 3em;
-}
-
-.text-default {
-    color: #000;
-}
-
-.text-white {
-    color: #fff;
-}
-
-.text-padding {
-    padding-left: 1em;
-}
-
 .profile-role {
     margin-top: 1em;
     border: 1px solid #ddd;
@@ -134,14 +95,6 @@ a.list-group-item {
 
 .padding-top {
     padding-top: 5.7em;
-}
-
-.padding-left {
-    padding-left: 1em;
-}
-
-.text-top {
-    vertical-align: text-top;
 }
 
 .btn-profile {
