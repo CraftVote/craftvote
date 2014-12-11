@@ -105,6 +105,12 @@ a.list-group-item {
     width: 10em;
 }
 
+.avatar-mini {
+    border: 1px solid #bbb;
+    background-color: #fff;
+    width: 3em;
+}
+
 .text-default {
     color: #000;
 }
@@ -128,4 +134,12 @@ a.list-group-item {
 
 .padding-top {
     padding-top: 5.7em;
+}
+
+.padding-left {
+    padding-left: 1em;
+}
+
+.text-top {
+    vertical-align: text-top;
 }

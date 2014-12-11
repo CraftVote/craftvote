@@ -28,16 +28,18 @@
         </div>
         <div class="col-sm-9">
             <h2 class="border-bottom">Лента</h2>
-            <div class="row">
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-1 text-center">
-                    <img class="img-circle avatar img-responsive pull-center" src="/res/img/profile/avatar/2.png">
-                </div>
-                <div class="col-lg-11 col-md-10 col-sm-10 col-xs-10">
-                    <p><a href="#"><small><b><!--NAME--></b></small></a> <span class="label label-info">Admin</span><br>
-                    <i>Наши сервера самые крутые в стране. Успехов в игре!</i><br>
-                    <small class="text-muted">10 декабря 2014 в 22:58</small></p>
-                </div>
-            </div>
+            <table>
+                <tr>
+                    <td class="text-top">
+                        <img class="img-circle avatar-mini img-responsive" src="/res/img/profile/avatar/2.png">
+                    </td>
+                    <td class="padding-left">
+                        <p><a href="#"><small><b><!--NAME--></b></small></a> <span class="label label-info">Admin</span><br>
+                        <i>Наши сервера самые крутые в стране. Успехов в игре!</i><br>
+                        <small class="text-muted">10 декабря 2014 в 22:58</small></p>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
