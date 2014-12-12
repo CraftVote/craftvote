@@ -17,5 +17,7 @@ class ContactsView extends \System\HtmlView {
         $this->layout('general');
         $this->title('Контакты');
         $this->pageHeader('Контакты');
+        $this->template('contacts');
     }
+    
 }
