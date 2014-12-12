@@ -5,18 +5,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+namespace Models\Forms;
 /**
  * Description of contacts
  *
  * @author Anonymous
  */
-class contacts extends \Form\AbstractModel {
+class Contacts extends \Form\AbstractModel {
     public function renderForm() {
         $this->name("contacts");
         $this->action('/templates/contacts');
-        $this->horizontal();
-        $this->setTitle("Контакты");
+        $this->setTitle("Контакты");     
         $this->setLabelLen(3)->setFieldLen(5);
         
         $this->appendElement(new \UI\SingleRowText('name', 'Ваше имя', true));
@@ -28,4 +27,4 @@ class contacts extends \Form\AbstractModel {
         $this->appendButton(new \UI\Button\RegistryButton());        
     }
 }
-
+       
