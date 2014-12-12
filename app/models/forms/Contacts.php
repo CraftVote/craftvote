@@ -25,6 +25,7 @@ class Contacts extends \Form\AbstractModel {
         $email = new \UI\Email('email', 'E-mail', true);
         $email->setValidation(\Form\ElementValidations::DB_UNIQUE_FIELD, array("users","email"));
         $this->appendElement($email);
+         $this->appendElement(new \UI\SingleRowText('topic', 'Тема сообщения', true));
         $this->appendElement(new \UI\MultipleRowsText('message', 'текс сообщения', true));
         $this->appendElement(new \UI\Captcha('captcha', 'Код'));
         $this->appendHr();
