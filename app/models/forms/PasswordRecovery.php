@@ -15,12 +15,13 @@ namespace Models\Forms;
  */
 class PasswordRecovery extends \Form\AbstractModel {
     
-    public function renderForm() {
+    public function __construct() {
+        parent::__construct('recovery', '/auth/recovery');
+    }
+
+        public function renderForm() {
         
-        $this->name('recovery');
-        $this->action('/auth/recovery');
         $this->setTitle('Восстановление пароля');
-        $this->horizontal();
         $this->setLabelLen(3);
         $this->setFieldLen(5);
         

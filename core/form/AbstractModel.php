@@ -19,6 +19,13 @@ abstract class AbstractModel {
     
     abstract protected function renderForm();
     
+    public function __construct($name, $action) {
+        $this->setName($name);
+        $this->setAction($action);
+        $this->attributes['class'] = 'form-horizontal';
+        $this->attributes['role'] = 'form';
+    }
+
     private function importArrayElements($elements){
         $output = array();
         foreach ($elements as $element){
@@ -83,19 +90,13 @@ abstract class AbstractModel {
         return $html;
     }
     
-    public function name($name){
+    public function setName($name){
         $this->attributes['name'] = $name;
         return $this;
     }
     
-    public function action($url){
+    public function setAction($url){
         $this->attributes['action'] = $url;
-        return $this;
-    }
-    
-    public function horizontal(){
-        $this->attributes['class'] = 'form-horizontal';
-        $this->attributes['role'] = 'form';
         return $this;
     }
     

@@ -14,12 +14,13 @@ namespace Models\Forms;
 
 class Login extends \Form\AbstractModel {
     
+    public function __construct() {
+        parent::__construct('login', '/auth/login');
+    }
 
+    
     public function renderForm()
     {
-        $this->name('login');
-        $this->action('/auth/login');
-        $this->horizontal();
         $this->setTitle('Авторизация');
         $this->setLabelLen(1)->setFieldLen(10);
         

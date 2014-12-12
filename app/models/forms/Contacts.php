@@ -7,30 +7,27 @@
  */
 namespace Models\Forms;
 /**
- * Description of Register
+ * Description of contacts
  *
  * @author Anonymous
  */
-class Registry extends \Form\AbstractModel {
+class Contacts extends \Form\AbstractModel {
     
     public function __construct() {
-        parent::__construct('registry', '/auth/registry');
+        parent::__construct('contacts', '/contacts');
     }
 
     public function renderForm() {
-        $this->setTitle("Регистрация");
+        $this->setTitle("Контакты");     
         $this->setLabelLen(3)->setFieldLen(5);
         
         $this->appendElement(new \UI\SingleRowText('name', 'Ваше имя', true));
         $email = new \UI\Email('email', 'E-mail', true);
         $email->setValidation(\Form\ElementValidations::DB_UNIQUE_FIELD, array("users","email"));
         $this->appendElement($email);
-        $this->appendElement(new \UI\Password('password', 'Пароль'));
-        $pass = new \UI\Password('repassword', 'Повторите пароль');
-        $pass->setEqualField("password");
-        $this->appendElement($pass);
         $this->appendElement(new \UI\Captcha('captcha', 'Код'));
         $this->appendHr();
         $this->appendButton(new \UI\Button\RegistryButton());        
     }
 }
+       

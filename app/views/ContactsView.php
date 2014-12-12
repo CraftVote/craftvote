@@ -12,12 +12,12 @@
  * @author ishibkikh
  */
 class ContactsView extends \System\HtmlView {
+    
     public function execute() {
         $this->layout("general");
         $this->title("Contacts");
         $this->pageHeader('Контакты');
-        $form = new Models\Forms\Contacts();
+        $form = new \Models\Forms\Contacts();
         $this->body($form->getHtml());
-        
     }
 }
