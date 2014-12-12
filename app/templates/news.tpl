@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-sm-6">
         <p class="text-muted">
-            <small><span class="glyphicon glyphicon-user"></span> <a href="/profile/2">Сергей Герасимов</a></small> | <small><span class="glyphicon glyphicon-eye-open"></span> 1149</small> | <small><span class="glyphicon glyphicon-heart"></span> 45</small>
+            <small><span class="glyphicon glyphicon-user"></span> <a href="/profile/3">Сергей Герасимов</a></small> | <small><span class="glyphicon glyphicon-eye-open"></span> 1149</small> | <small><span class="glyphicon glyphicon-heart"></span> 45</small>
         </p>
     </div>
     <div class="col-sm-6 text-right">
@@ -23,7 +23,7 @@
 <div class="row">
     <div class="col-sm-6">
         <p class="text-muted">
-            <small><span class="glyphicon glyphicon-user"></span> <a href="/profile/2">Сергей Герасимов</a></small> | <small><span class="glyphicon glyphicon-eye-open"></span> 1149</small> | <small><span class="glyphicon glyphicon-heart"></span> 45</small>
+            <small><span class="glyphicon glyphicon-user"></span> <a href="/profile/3">Сергей Герасимов</a></small> | <small><span class="glyphicon glyphicon-eye-open"></span> 1149</small> | <small><span class="glyphicon glyphicon-heart"></span> 45</small>
         </p>
     </div>
     <div class="col-sm-6 text-right">
