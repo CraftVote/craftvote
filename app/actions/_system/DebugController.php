@@ -15,15 +15,12 @@ class DebugController extends \System\Controller{
     
     public function get(){
         
-        $config = \System\ApplicationRegistry::getConfig();
         $user = new \Models\Tables\Users();
-        $dm = new \DB\MySQL\DataMapper($user);
-        if (!$dm->findById(2)){
-            echo 'No';
-        }
-        else{
-            echo $user->name;
-        }
+        $mapper = new \DB\MySQL\DataMapper($user);
+        $user->email = $email;
+        $user->name = $name;
+        $user->password = \System\Password::hash($password);
+        $mapper->save();
 
         $this->close();
     }

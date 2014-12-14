@@ -159,9 +159,13 @@ class VerifyField {
     
     static public function unique_db_field($value, $table, $field)
     {
-        $req = new \DB\SQL\RequestBuilder(\DB\SQL\MySqlConnector::getInstance());
-        $result = $req->select('*')->from($table)->where(array($field => $value))->fetchOne();
-        
+        if (is_string($value)){
+            $sql = 'SELECT * from '.$table.' WHERE '.$field.' = "'.$value.'" LIMIT 1';
+        }
+        else{
+            $sql = 'SELECT * from '.$table.' WHERE '.$field.' = '.$value.' LIMIT 1';
+        }
+        $result = \DB\MySQL\Executor::fetchOne($sql);
         if(!$result){
             return true;
         }

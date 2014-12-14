@@ -48,7 +48,7 @@ class Identity {
         $user = new \Models\Tables\Users();
         $mapper = new \DB\MySQL\DataMapper($user);
         $user->email = $email;
-        if (!$mapper->find()){
+        if (!$mapper->findOne()){
             $user->name = $name;
             $user->password = \System\Password::hash($password);
             $mapper->save();

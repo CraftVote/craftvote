@@ -32,7 +32,19 @@ class Builder {
     }
     
     static public function fields($entity){
-        return ' ';
+        $items = array();
+        foreach ($entity as $key => $value){
+            if (($key === $entity->getPrimaryKey())or($value === NULL)){
+                continue;
+            }
+            if (is_string($value)){
+                $items[$key] = '\''.$value.'\'';
+            }
+            else{
+                $items[$key] = $value;
+            }
+        }
+        return implode(', ', array_keys($items));
     }
     
     static public function items($entity){
@@ -52,6 +64,18 @@ class Builder {
     }
     
     static public function values($entity){
-        return ' ';
+        $items = array();
+        foreach ($entity as $key => $value){
+            if (($key === $entity->getPrimaryKey())or($value === NULL)){
+                continue;
+            }
+            if (is_string($value)){
+                $items[$key] = '\''.$value.'\'';
+            }
+            else{
+                $items[$key] = $value;
+            }
+        }
+        return implode(', ', array_values($items));
     }
 }
