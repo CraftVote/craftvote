@@ -29,6 +29,9 @@ class Identity {
         if ($user->active === 0){
             return false;
         }
+        if($user->verified === 0){
+            return false;
+        }
 
         \Auth\User::auth($user);
         $user->clear();
