@@ -23,6 +23,10 @@ class Ajax {
         $this->answer['func'] = $func_name;
     }
     
+    public function clearForm($formname){
+        $this->answer['clear'] = $formname;
+    }
+
     public function ajax_redirect($url){
         
         $this->answer['type'] = 'redirect';

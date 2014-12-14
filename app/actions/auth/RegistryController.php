@@ -12,9 +12,7 @@
  * @author Anonymous
  */
 class RegistryController extends \System\Controller {
-    public function get(){
-       
-    }
+    public function get(){}
     
     public function post(){
         

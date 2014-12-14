@@ -27,7 +27,7 @@ class RecoveryController extends \System\Controller {
             }
             else{
                 $plain = \System\Hasher::genRandom(5);
-                $mail = new \Custom\SystemEmail($user->email, 'Восстановление пароля');
+                $mail = new \Custom\FromSystemEmail($user->email, 'Восстановление пароля');
                 $mail->template('password_recovery');
                 $mail->set('username', $user->name);
                 $mail->set('password', $plain);

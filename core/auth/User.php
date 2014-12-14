@@ -54,6 +54,10 @@ class User {
         return \System\Session::get('name');
     }
     
+    static public function getEmail(){
+        return \System\Session::get('email');
+    }
+    
     static public function auth(\Models\Tables\Users $user) {
         \System\Session::startNew();
         if (($user->session <> session_id())and($user->session != NULL)){
@@ -62,6 +66,7 @@ class User {
         \System\Session::set('id', $user->id);
         \System\Session::set('name', $user->name);
         \System\Session::set('role', $user->role);
+        \System\Session::set('email', $user->email);
     }
 
     static public function getRoleId($role = null){

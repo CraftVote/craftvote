@@ -13,7 +13,7 @@ namespace Custom;
  *
  * @author ishibkikh
  */
-class SystemEmail extends \System\Email {
+class FromSystemEmail extends \System\Email {
     
     const FROM = 'daemon@craftvote.ru';
     

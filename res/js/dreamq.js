@@ -248,6 +248,9 @@ function HttpRequest(action, success_callback, failed_callback, default_callback
                     default_callback(data);
             }
             
+            if(data.clear !== undefined){
+                $('form[name="'+data.clear+'"]')[0].reset();
+            }
         },
         error: function(jqXHR, textStatus, errorThrown){
             alert(textStatus+': '+jqXHR.status+' ('+errorThrown+')');
