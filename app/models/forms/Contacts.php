@@ -19,17 +19,17 @@ class Contacts extends \Form\AbstractModel {
 
     public function renderForm() {
         $this->setTitle("Контакты");     
-        $this->setLabelLen(3)->setFieldLen(5);
+        $this->setLabelLen(3)->setFieldLen(7);
         
-        $this->appendElement(new \UI\SingleRowText('name', 'Ваше имя', true));
-        $email = new \UI\Email('email', 'E-mail', true);
-        $email->setValidation(\Form\ElementValidations::DB_UNIQUE_FIELD, array("users","email"));
-        $this->appendElement($email);
-         $this->appendElement(new \UI\SingleRowText('topic', 'Тема сообщения', true));
-        $this->appendElement(new \UI\MultipleRowsText('message', 'текс сообщения', true));
+        if (!\Auth\User::isAuth()){
+            $this->appendElement(new \UI\SingleRowText('name', 'Ваше имя', true));
+            $this->appendElement(new \UI\Email('email', 'E-mail', true));
+        }
+        $this->appendElement(new \UI\SingleRowText('topic', 'Тема', true));
+        $this->appendElement(new \UI\MultipleRowsText('message', 'Описание', true));
         $this->appendElement(new \UI\Captcha('captcha', 'Код'));
         $this->appendHr();
-        $this->appendButton(new \UI\Button\RegistryButton());        
+        $this->appendButton(new \UI\Button\SendButton());        
     }
 }
        
