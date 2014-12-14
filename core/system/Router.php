@@ -21,7 +21,7 @@ class Router
 
     public function assignFromURL(){
         $params = array();
-        $this->count = preg_match_all("/\/([-_0-9a-z.]+)/", strtolower(filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING)), $params);
+        $this->count = preg_match_all("/\/([-_0-9a-zA-Z.]+)/", strtolower(filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING)), $params);
         $this->raw = $params[1];
         $this->parse();
         if ($_SERVER['REQUEST_METHOD'] === 'POST'){

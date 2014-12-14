@@ -43,7 +43,7 @@ class Identity {
     }
     
     
-    static public function registry($email, $password, $name){
+    static public function registry($email, $password, $name, $city){
         
         $user = new \Models\Tables\Users();
         $mapper = new \DB\MySQL\DataMapper($user);
@@ -51,8 +51,9 @@ class Identity {
         if (!$mapper->findOne()){
             $user->name = $name;
             $user->password = \System\Password::hash($password);
+            $user->city = $city;
             $mapper->save();
-            return true;
+            return $user->getId();
         }
         else{
             return false;

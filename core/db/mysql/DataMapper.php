@@ -63,14 +63,9 @@ class DataMapper
     }
     
     public function delete(){
-        $this->request->deleteFrom($this->table);
-        if ($this->entity->getId() <> null){
-            $this->request->where(array($this->entity->getPrimaryKey() => $this->entity->getId()));
-        }
-        else{
-            $this->request->where($this->entity);
-        }
-        return $this->request->exec();
+        
+        $sql = 'DELETE FROM '.$this->table.' WHERE '.$this->entity->getPrimaryKey().' = '.$this->entity->getId().';';
+        return \DB\MySQL\Executor::modify($sql);
     }
     
     public function save(){

@@ -21,15 +21,19 @@ class Registry extends \Form\AbstractModel {
         $this->setTitle("Регистрация");
         $this->setLabelLen(3)->setFieldLen(5);
         
-        $this->appendElement(new \UI\SingleRowText('name', 'Ваше имя', true));
+        $this->appendElement(new \UI\SingleRowText('name', 'Фамилия Имя', true));
+        $this->appendElement(new \UI\SingleRowText('city', 'Город', true));
         $email = new \UI\Email('email', 'E-mail', true);
         $email->setValidation(\Form\ElementValidations::DB_UNIQUE_FIELD, array("users","email"));
+        $email->setPlaceholder('Необходимо будет подтвердить');
         $this->appendElement($email);
-        $this->appendElement(new \UI\Password('password', 'Пароль'));
+        $this->appendHr();
+        $this->appendElement(new \UI\Password('password', 'Придумайте пароль'));
         $pass = new \UI\Password('repassword', 'Повторите пароль');
         $pass->setEqualField("password");
         $this->appendElement($pass);
-        $this->appendElement(new \UI\Captcha('captcha', 'Код'));
+        $this->appendHr();
+        $this->appendElement(new \UI\Captcha('captcha', 'Код с картинки'));
         $this->appendHr();
         $this->appendButton(new \UI\Button\RegistryButton());        
     }

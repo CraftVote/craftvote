@@ -11,18 +11,12 @@ namespace Models\Tables;
  *
  * @author Ivan
  */
-class Users extends \DB\MySQL\AbstractModel {
+class Verify extends \DB\MySQL\AbstractModel {
     
     public $id;
-    public $name;
-    public $password;
-    public $email;
-    public $role;
     public $date_create;
-    public $active;
-    public $session;
-    public $verified;
-    public $city;
+    public $hash;
+    public $user_id;
     
     public function getPrimaryKey() {
         return 'id';

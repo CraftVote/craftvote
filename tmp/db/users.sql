@@ -7,6 +7,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `active` tinyint(1) NOT NULL DEFAULT '1',
   `session` varchar(64) DEFAULT NULL,
+  `verified` tinyint(1) NOT NULL DEFAULT '0',
+  `city` varchar(64) NOT NULL,
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `auth` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;

@@ -196,6 +196,9 @@ var FormValidator = {
     }
 };
 
+function refreshCaptcha(){
+    $("#captcha-img").attr("src", "/_system/captcha?"+(new Date()).getTime());
+}
 
 function HttpRequest(action, success_callback, failed_callback, default_callback){
     
@@ -250,6 +253,10 @@ function HttpRequest(action, success_callback, failed_callback, default_callback
             
             if(data.clear !== undefined){
                 $('form[name="'+data.clear+'"]')[0].reset();
+            }
+            
+            if(data.captcha !== undefined){
+                refreshCaptcha();
             }
         },
         error: function(jqXHR, textStatus, errorThrown){
