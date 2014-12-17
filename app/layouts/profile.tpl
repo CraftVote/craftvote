@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="/res/css/dreamq.css">
         <link rel="stylesheet" type="text/css" href="/res/css/custom.css">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>

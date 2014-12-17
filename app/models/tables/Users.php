@@ -23,6 +23,7 @@ class Users extends \DB\MySQL\AbstractModel {
     public $session;
     public $verified;
     public $city;
+    public $balance;
     
     public function getPrimaryKey() {
         return 'id';

@@ -34,6 +34,9 @@ class RegistryController extends \System\Controller {
             $mail->set('host', $_SERVER['SERVER_NAME']);
             $mail->set('hash', $hash);
             $mail->go();
+            
+            \Custom\Finance::fill($id, '50');
+            
             $ajax->ajax_redirect("/auth/registry/success");
         }
         $this->setAjax($ajax);

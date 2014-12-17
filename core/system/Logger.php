@@ -41,6 +41,11 @@ class Logger {
     {
         self::write('debug.log', $text);
     }
+    
+    static public function finance($text)
+    {
+        self::write('finance.log', $text);
+    }
    
     static private function write($file, $text)
     {

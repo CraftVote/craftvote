@@ -28,6 +28,8 @@ class VerifyController extends \System\Controller {
             $user->verified = 1;
             $mapper->save();
             $mv->delete();
+            
+            \Custom\Finance::fill($user->getId(), '50');
             $this->redirect('/auth/verify/success');
         }
     }
