@@ -21,7 +21,7 @@ class LoginController extends \System\Controller {
                 $ajax->ajax_redirect('/profile/'.\Auth\User::getId());
             }
             else{
-                $ajax->ajax_red_alert('Неверное имя пользователя или пароль');
+                $ajax->ajax_red_alert(\Auth\Identity::$error);
             }
         }
         $this->setAjax($ajax);

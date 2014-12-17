@@ -53,7 +53,7 @@ class SingleRowText extends AbstractTextValue {
     
     public function __construct($name, $label, $required = false) {
         $this->setName($name);
-        $this->setMinLen(6);
+        $this->setMinLen(4);
         $this->setMaxLen(128);
         $this->setLabel($label);
         $this->setType(\Form\ElementTypes::INPUT_TEXT);

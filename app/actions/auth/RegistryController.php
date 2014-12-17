@@ -35,7 +35,7 @@ class RegistryController extends \System\Controller {
             $mail->set('hash', $hash);
             $mail->go();
             
-            \Custom\Finance::fill($id, '50', 'бонус за регистрацию');
+            \Custom\Finance::fill($id, '30', 'бонус за регистрацию');
             
             $ajax->ajax_redirect("/auth/registry/success");
         }

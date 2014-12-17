@@ -15,6 +15,8 @@ namespace Auth;
  */
 class Identity {
     
+    static public $error;
+    
     static public function login($username, $password){
         
         $user = new \Models\Tables\Users();
@@ -24,12 +26,15 @@ class Identity {
             return false;
         }
         if (!\System\Password::verify($password, $user->password)){
+            self::$error = 'Неверный E-mail или пароль';
             return false;
         }
-        if ($user->active === 0){
+        if ($user->active == 0){
+            self::$error = 'Ваш аккаунт заблокирован';
             return false;
         }
-        if($user->verified === 0){
+        if($user->verified == 0){
+            self::$error = 'Ваш E-mail не подтверждён';
             return false;
         }
 
