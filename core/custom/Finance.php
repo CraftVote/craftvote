@@ -32,7 +32,7 @@ class Finance {
         return $user->balance;
     }
     
-    static public function deduct($user_id, $iamount){
+    static public function deduct($user_id, $iamount, $comment){
         
         $amount = round($iamount, 2);
         self::$error = '';
@@ -57,12 +57,21 @@ class Finance {
      
         $user->balance = $user->balance - $amount;
         $mapper->save();
-        \System\Logger::finance('DEDUCT from user '.$user_id.' amount '.$amount.' balance '.$user->balance);
+        \System\Logger::finance('DEDUCT from user '.$user_id.' amount '.$amount.' balance '.$user->balance.' '.$comment);
+        
+        $mail = new \Custom\FromSystemEmail($user->email, 'Списание средств с вашего счёта');
+        $mail->template('deduct_money');
+        $mail->set('name', $user->name);
+        $mail->set('amount', $amount);
+        $mail->set('balance', $user->balance);
+        $mail->set('comment', $comment);
+        $mail->go();
+        
         return true;
     }
     
     
-    static public function fill($user_id, $iamount){
+    static public function fill($user_id, $iamount, $comment){
         
         $amount = round($iamount, 2);
         self::$error = '';
@@ -86,7 +95,16 @@ class Finance {
         
         $user->balance = $user->balance + $amount;
         $mapper->save();
-        \System\Logger::finance('FILL to user '.$user_id.' amount '.$amount.' balance '.$user->balance);
+        \System\Logger::finance('FILL to user '.$user_id.' amount '.$amount.' balance '.$user->balance.' '.$comment);
+        
+        $mail = new \Custom\FromSystemEmail($user->email, 'Пополнение средств на вашем счёте');
+        $mail->template('fill_money');
+        $mail->set('name', $user->name);
+        $mail->set('amount', $amount);
+        $mail->set('balance', $user->balance);
+        $mail->set('comment', $comment);
+        $mail->go();
+        
         return true;
     }
     
