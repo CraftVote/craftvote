@@ -57,7 +57,8 @@ class Bonus {
      
         $user->bonus = $user->bonus - $amount;
         $mapper->save();
-        \System\Logger::finance('DEDUCT BONUS from user '.$user_id.' amount '.$amount.' balance '.$user->bonus.' '.$comment);
+        
+        self::payment($user_id, $amount, 'OUT', $comment);
         
         $mail = new \Custom\FromSystemEmail($user->email, 'Списание бонуса с вашего счёта бонусов');
         $mail->template('deduct_money');
@@ -69,6 +70,19 @@ class Bonus {
         $mail->go();
         
         return true;
+    }
+    
+    
+    static public function payment($user_id, $amount, $direction, $comment){
+        
+        $payment = new \Models\Tables\Payments();
+        $mapper = new \DB\MySQL\DataMapper($payment);
+        $payment->type = 'BONUS';
+        $payment->user_id = $user_id;
+        $payment->amount = $amount;
+        $payment->comment = $comment;
+        $payment->direction = $direction;
+        $mapper->save();
     }
     
     
@@ -96,7 +110,8 @@ class Bonus {
         
         $user->bonus = $user->bonus + $amount;
         $mapper->save();
-        \System\Logger::finance('FILL BONUS to user '.$user_id.' amount '.$amount.' balance '.$user->balance.' '.$comment);
+        self::payment($user_id, $amount, 'IN', $comment);
+        //\System\Logger::finance('FILL BONUS to user '.$user_id.' amount '.$amount.' balance '.$user->balance.' '.$comment);
         
         $mail = new \Custom\FromSystemEmail($user->email, 'Зачисление бонуса на ваш счёт бонусов');
         $mail->template('fill_money');

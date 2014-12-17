@@ -69,7 +69,8 @@ class Finance {
      
         $user->balance = $user->balance - $amount;
         $mapper->save();
-        \System\Logger::finance('DEDUCT REAL from user '.$user_id.' amount '.$amount.' balance '.$user->balance.' '.$comment);
+        self::payment($user_id, $amount, 'OUT', $comment);
+        //\System\Logger::finance('DEDUCT REAL from user '.$user_id.' amount '.$amount.' balance '.$user->balance.' '.$comment);
         
         $mail = new \Custom\FromSystemEmail($user->email, 'Списание основных средств с вашего счёта');
         $mail->template('deduct_money');
@@ -108,7 +109,8 @@ class Finance {
         
         $user->balance = $user->balance + $amount;
         $mapper->save();
-        \System\Logger::finance('FILL REAL to user '.$user_id.' amount '.$amount.' balance '.$user->balance.' '.$comment);
+        self::payment($user_id, $amount, 'IN', $comment);
+        //\System\Logger::finance('FILL REAL to user '.$user_id.' amount '.$amount.' balance '.$user->balance.' '.$comment);
         
         $mail = new \Custom\FromSystemEmail($user->email, 'Зачисление основных средств на ваш счёт');
         $mail->template('fill_money');
@@ -120,6 +122,18 @@ class Finance {
         $mail->go();
         
         return true;
+    }
+    
+    static public function payment($user_id, $amount, $direction, $comment){
+        
+        $payment = new \Models\Tables\Payments();
+        $mapper = new \DB\MySQL\DataMapper($payment);
+        $payment->type = 'REAL';
+        $payment->user_id = $user_id;
+        $payment->amount = $amount;
+        $payment->comment = $comment;
+        $payment->direction = $direction;
+        $mapper->save();
     }
     
 }
