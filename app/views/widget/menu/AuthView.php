@@ -25,7 +25,7 @@ class AuthView extends \System\View {
             '<span class="glyphicon glyphicon-send" aria-hidden="true"></span> Мои новости'=>'/mynews',
             '<i class="fa fa-bullhorn"></i> Моя реклама'=>'/myadv',
             '1' => 'divider',
-            '<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Управление сайтом'=>'/manage',
+            '<i class="fa fa-cogs"></i> Управление сайтом'=>'/manage',
             '<i class="fa fa-key"></i> Смена пароля'=>'/chpass',
             '0' => 'divider',
             '<span title="Выйти" class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Выйти'=>'/auth/logout'
