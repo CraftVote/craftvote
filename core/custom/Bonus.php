@@ -13,7 +13,7 @@ namespace Custom;
  *
  * @author ishibkikh
  */
-class Finance {
+class Bonus {
     
     const 
         MAX_AMOUNT  = 10000,
@@ -29,20 +29,8 @@ class Finance {
         if (!$mapper->findById($user_id)){
             throw new \System\Exception(__CLASS__.':'.__METHOD__." - Cannot find user with id=".$user_id);
         }
-        return $user->balance;
+        return $user->bonus;
     }
-    
-    
-    static public function getAgregatedBalance($user_id){
-        
-        $user = new \Models\Tables\Users();
-        $mapper = new \DB\MySQL\DataMapper($user);
-        if (!$mapper->findById($user_id)){
-            throw new \System\Exception(__CLASS__.':'.__METHOD__." - Cannot find user with id=".$user_id);
-        }
-        return ($user->balance + $user->bonus);
-    }
-    
     
     static public function deduct($user_id, $iamount, $comment){
         
@@ -62,16 +50,16 @@ class Finance {
         if (!$mapper->findById($user_id)){
             throw new \System\Exception(__CLASS__.':'.__METHOD__." - Cannot find user with id=".$user_id);
         }
-        if (($user->balance - $amount)< 0){
+        if (($user->bonus - $amount)< 0){
             self::$error = 'Недостаточно средств на счёте';
             return false;
         }
      
-        $user->balance = $user->balance - $amount;
+        $user->bonus = $user->bonus - $amount;
         $mapper->save();
-        \System\Logger::finance('DEDUCT REAL from user '.$user_id.' amount '.$amount.' balance '.$user->balance.' '.$comment);
+        \System\Logger::finance('DEDUCT BONUS from user '.$user_id.' amount '.$amount.' balance '.$user->bonus.' '.$comment);
         
-        $mail = new \Custom\FromSystemEmail($user->email, 'Списание основных средств с вашего счёта');
+        $mail = new \Custom\FromSystemEmail($user->email, 'Списание бонуса с вашего счёта бонусов');
         $mail->template('deduct_money');
         $mail->set('name', $user->name);
         $mail->set('amount', $amount);
@@ -101,16 +89,16 @@ class Finance {
         if (!$mapper->findById($user_id)){
             throw new \System\Exception(__CLASS__.':'.__METHOD__." - Cannot find user with id=".$user_id);
         }
-        if (($user->balance + $amount) > self::MAX_BALANCE){
+        if (($user->bonus + $amount) > self::MAX_BALANCE){
             self::$error = 'Превышена максимально возможная сумма для одного счёта';
             return false;
         }
         
-        $user->balance = $user->balance + $amount;
+        $user->bonus = $user->bonus + $amount;
         $mapper->save();
-        \System\Logger::finance('FILL REAL to user '.$user_id.' amount '.$amount.' balance '.$user->balance.' '.$comment);
+        \System\Logger::finance('FILL BONUS to user '.$user_id.' amount '.$amount.' balance '.$user->balance.' '.$comment);
         
-        $mail = new \Custom\FromSystemEmail($user->email, 'Зачисление основных средств на ваш счёт');
+        $mail = new \Custom\FromSystemEmail($user->email, 'Зачисление бонуса на ваш счёт бонусов');
         $mail->template('fill_money');
         $mail->set('name', $user->name);
         $mail->set('amount', $amount);

@@ -19,6 +19,6 @@ class SuccessView extends \System\HtmlView {
         $this->pageHeader('Подтверждение E-mail');
         $this->body('<h4 class="text-success"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> E-mail подтверждён</h4><br>');
         $this->p('Поздравляем! Теперь вы полноценный пользователь нашего сайта и можете авторизоваться');
-        $this->body('<div class="alert alert-info" role="alert"><strong>Бонус</strong> Мы зачислили ещё 50 рублей на ваш виртуальный счёт</div>');
+        $this->body('<div class="alert alert-info" role="alert"><strong>Бонус</strong> Мы зачислили ещё 30 рублей на ваш виртуальный счёт</div>');
     }
 }

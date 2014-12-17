@@ -31,7 +31,7 @@ class AuthView extends \System\View {
             '<span title="Выйти" class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Выйти'=>'/auth/logout'
         );
         $menu->addRightButton('<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 0', '/mail');
-        $menu->addRightButton('<i class="fa fa-rub"></i> '. \Custom\Finance::getBalance(\Auth\User::getId()), '/balance');
+        $menu->addRightButton('<i class="fa fa-rub"></i> '. \Custom\Finance::getAgregatedBalance(\Auth\User::getId()), '/balance');
         $menu->addRightDropdown('<span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.\Auth\User::getName().' <span class="label label-info">Admin</span>', $items);
         $this->body($menu->getHtml());
     }

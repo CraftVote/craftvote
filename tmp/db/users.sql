@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `verified` tinyint(1) NOT NULL DEFAULT '0',
   `city` varchar(64) NOT NULL,
   `balance` decimal(8,2) NOT NULL DEFAULT '0.00',
+  `bonus` decimal(5,2) NOT NULL DEFAULT '0.00',
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `auth` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

@@ -24,6 +24,7 @@ class Users extends \DB\MySQL\AbstractModel {
     public $verified;
     public $city;
     public $balance;
+    public $bonus;
     
     public function getPrimaryKey() {
         return 'id';

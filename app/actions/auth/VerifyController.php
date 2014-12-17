@@ -29,7 +29,7 @@ class VerifyController extends \System\Controller {
             $mapper->save();
             $mv->delete();
             
-            \Custom\Finance::fill($user->getId(), '30', 'бонус за подтверждение E-mail');
+            \Custom\Bonus::fill($user->getId(), '30', 'бонус за подтверждение E-mail');
             $this->redirect('/auth/verify/success');
         }
     }
