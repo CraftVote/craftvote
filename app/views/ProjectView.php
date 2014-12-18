@@ -20,28 +20,30 @@ class ProjectView extends \System\View {
         $this->renderProject($this->getParam('project'));
     }
     
-    protected function renderProject(\Models\Tables\Projects $project){
+    protected function renderProject($project){
         
-        $this->title($project->title);
-        if ($project->logo == NULL){
+        $this->title($project['title']);
+        if ($project['logo'] == NULL){
             $this->write('LOGO', 'default.png');
         }
         else{
-            $this->write('LOGO', $project->logo);
+            $this->write('LOGO', $project['logo']);
         }
-        if ($project->website == NULL){
+        if ($project['website'] == NULL){
             $this->write('WEBSITE', 'отсутствует');
         }
         else{
-            $this->write('WEBSITE', $project->website);
+            $this->write('WEBSITE', $project['website']);
         }
-        if ($project->sn == NULL){
+        if ($project['sn'] == NULL){
             $this->write('SN', 'отсутствует');
         }
         else{
-            $this->write('SN', $project->sn);
+            $this->write('SN', $project['sn']);
         }
-        $this->write('DESC', $project->description);
-        $this->write('REG', \System\Time::formatDateTime($project->date_reg));
+        $this->write('DESC', $project['description']);
+        $this->write('REG', \System\Time::formatDateTime($project['date_reg']));
+        $this->write('USER_ID', $project['user_id']);
+        $this->write('USER_NAME', $project['name']);
     }
 }

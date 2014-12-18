@@ -15,13 +15,13 @@ class ProjectController extends \System\Controller {
     
     public function get($id){
         
-        $project = new \Models\Tables\Projects();
-        $mapper = new \DB\MySQL\DataMapper($project);
-        if (!$mapper->findById(intval($id))){
+        $project = new \Custom\Project();
+        $result = $project->getByProjectId(intval($id));
+        if (!$result){
             $this->pageNotFound();
         }
         else{
-            $this->setParam('project', $project);
+            $this->setParam('project', $result);
         }
     }
     

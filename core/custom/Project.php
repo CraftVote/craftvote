@@ -16,8 +16,12 @@ namespace Custom;
 class Project {
     
     static public function getByUserId($id){
-        
         $sql = 'SELECT * FROM projects WHERE user_id = '.intval($id).' ORDER BY id DESC';
         return \DB\MySQL\Executor::fetchAll($sql);
+    }
+    
+    static public function getByProjectId($id){
+        $sql = 'SELECT p.id, p.title, p.description, p.active, p.date_reg, p.website, p.sn, p.logo, u.name, u.id as user_id FROM projects p LEFT JOIN users u ON p.user_id = u.id  WHERE p.user_id = '.intval($id).' LIMIT 1;';
+        return \DB\MySQL\Executor::fetchOne($sql);
     }
 }

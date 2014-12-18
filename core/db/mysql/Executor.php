@@ -36,7 +36,7 @@ class Executor {
             $result = false;
         }
         else{
-            $result = $collection->fetch_array();
+            $result = $collection->fetch_assoc();
         }
         $collection->close();
         return $result;
