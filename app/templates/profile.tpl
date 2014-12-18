@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-xs-3 col-sm-2 text-center">
             <img class="img-circle avatar img-responsive pull-center" src="/res/img/profile/avatar/2.png">
-            <h4><span class="label label-success">online</span></h4>
+            <!--VISIT-->
         </div>
         <div class="col-xs-9 col-sm-10">
             <h1><!--NAME--></h1>

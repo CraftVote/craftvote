@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-xs-9">
         <h2><!--H_TITLE--></h2>
         <small class="text-muted">Зарегестрирован <!--REG--></small>
     </div>
-    <div class="col-md-6 text-right">
+    <div class="col-xs-3 text-right">
         <br><button class="btn btn-info">Голосовать</button>
     </div>
 </div>

@@ -23,6 +23,14 @@ class ProfileView extends \System\HtmlView {
         $this->template('profile');
         //$this->setRegButton($mine);
         $this->setUserInfo($user);
+        
+        $date = \System\Session::getLastVisitDate($user->session);
+        if (\Auth\LastVisit::isOnine($date)){
+            $this->write('VISIT', '<h4><span class="label label-success">online</span></h4>');
+        }
+        else{
+            $this->write('VISIT', '<p class="text-muted"><small>был '. \System\Time::formatDateTime($date).'</small></p>');
+        }
     }
     
     protected function setUserInfo(\Models\Tables\Users $user){
