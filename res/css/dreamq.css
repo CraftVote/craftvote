@@ -67,3 +67,10 @@ and open the template in the editor.
 #captcha-img {
     cursor: pointer;
 }
+
+.nav-container{
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 10px;
+}
