@@ -51,7 +51,7 @@ class SingleRowText extends AbstractTextValue {
         return '<input class="form-control" '.$at->render().'>';
     }
     
-    public function __construct($name, $label, $required = false) {
+    public function __construct($name, $label, $required = false, $placeholder = null) {
         $this->setName($name);
         $this->setMinLen(4);
         $this->setMaxLen(128);
@@ -59,6 +59,9 @@ class SingleRowText extends AbstractTextValue {
         $this->setType(\Form\ElementTypes::INPUT_TEXT);
         if ($required){
             $this->setRequired();
+        }
+        if ($placeholder !== null){
+            $this->setPlaceholder($placeholder);
         }
     }
 }

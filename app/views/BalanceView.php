@@ -16,23 +16,17 @@ class BalanceView extends \System\HtmlView {
     public function execute() {
         $this->layout('general');
         $this->title('Информация о счёте');
-        $this->pageHeader('Информация о счёте');
-        $this->h3('Остаток');
-        $this->p_muted('Основные средства: <b class="text-default">'.$this->getParam('balance').'</b> руб');
-        $this->p_muted('Бонусы: <b class="text-default">'.$this->getParam('bonus').'</b> руб');
-        $this->hr();
-        $this->h3('Последние 10 операций');
-        $this->renderOperations($this->getParam('operations'));
+        $this->template('balance');
+        $this->write('REAL', $this->getParam('balance'));
+        $this->write('BONUS', $this->getParam('bonus'));
+        $this->write('OPERATIONS', $this->renderOperations($this->getParam('operations')));
     }
     
     protected function renderOperations($operations){
         
         if ($operations === false){
-            $this->p_muted('Операций нет');
-            return;
+            return '<p class="text-muted">Операций нет</p>';
         }
-        //\System\Damp::variable($operations);
-        //exit;
         $table = new \UI\Table();
         $table->striped();
         $table->bordered();
@@ -40,7 +34,7 @@ class BalanceView extends \System\HtmlView {
         foreach ($operations as $op){
             $table->addRow([$op[0],$op[2],$op[3],$this->formatDirection($op[6]),$op[4],$op[5]]);
         }
-        $this->body($table);
+        return $table->getHtml();
     }
     
     protected function formatDirection($direction){

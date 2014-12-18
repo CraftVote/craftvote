@@ -62,6 +62,10 @@ abstract class AbstractModel {
         );
     }
     
+    public function __toString() {
+        return $this->getHtml();
+    }
+
     public function getHtml(){
         $this->renderForm();
         $at = new ConstructAttributes();

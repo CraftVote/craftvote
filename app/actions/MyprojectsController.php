@@ -11,9 +11,12 @@
  *
  * @author ishibkikh
  */
-class MyprojectController extends \System\Controller {
+class MyprojectsController extends \System\Controller {
     
-    public function get(){}
+    public function get(){
+        
+        $this->setParam('projects', \Custom\Project::getByUserId(\Auth\User::getId()));
+    }
     
     public function allowAccess() {
         return \Auth\User::ROLE_MEMBER;

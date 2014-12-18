@@ -16,6 +16,11 @@ class Table {
     protected $class = array(), $rows = array(), $titles = array();
     
     public function __toString() {
+        
+        return $this->getHtml();
+    }
+    
+    public function getHtml() {
         $html = '<table class="'.  implode(' ', $this->class).'">';
         if (count($this->titles)>0){
             $html .= '<tr>';

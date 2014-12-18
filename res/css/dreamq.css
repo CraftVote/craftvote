@@ -63,3 +63,7 @@ and open the template in the editor.
 .text-top {
     vertical-align: text-top;
 }
+
+#captcha-img {
+    cursor: pointer;
+}

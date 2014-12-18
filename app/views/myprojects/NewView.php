@@ -7,15 +7,18 @@
  */
 
 /**
- * Description of MyprojectView
+ * Description of NewView
  *
  * @author ishibkikh
  */
-class MyprojectView extends \System\HtmlView {
+class NewView extends \System\HtmlView {
     
     public function execute() {
+        
         $this->layout('general');
-        $this->title('Мой проект');
-        $this->pageHeader('Мой проект');
+        $this->title('Создание проекта');
+        $this->pageHeader('Создание проекта');
+        $form = new \Models\Forms\CreateProject();
+        $this->body($form);
     }
 }

@@ -21,7 +21,7 @@ class AuthView extends \System\View {
         $menu->addLeftButton('Контакты', '/contacts');
         $items = array(
             '<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Мой профиль'=>'/profile/'.\Auth\User::getId(),
-            '<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Мой проект'=>'/myproject',
+            '<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Мои проекты'=>'/myprojects',
             '<span class="glyphicon glyphicon-send" aria-hidden="true"></span> Мои новости'=>'/mynews',
             '<i class="fa fa-bullhorn"></i> Моя реклама'=>'/myadv',
             '1' => 'divider',

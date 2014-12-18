@@ -26,9 +26,12 @@ class MultipleRowsText extends AbstractTextValue{
         return $this->rows;
     }
 
-    public function __construct($name, $label, $required = false) {
+    public function __construct($name, $label, $required = false, $placeholder = null) {
         $this->setName($name);
         $this->setLabel($label);
+        if ($placeholder !== null){
+            $this->setPlaceholder($placeholder);
+        }
         if ($required){
             $this->setRequired();
         }

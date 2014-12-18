@@ -19,6 +19,7 @@ class CreateButton extends AbstractButton  {
         parent::__construct();
         $this->setTitle('Создать');
         $this->setBlueColor();
+        $this->setWidthSm();
         $this->submit();
     }
 }
