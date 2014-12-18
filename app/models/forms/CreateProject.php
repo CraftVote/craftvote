@@ -24,9 +24,11 @@ class CreateProject extends \Form\AbstractModel {
     public function renderForm() {
         
         $title = new \UI\SingleRowText('title', 'Название проекта', true);
-        $title->setMaxLen(128);
+        $title->setMaxLen(64);
         $this->appendElement($title);
-        $this->appendElement(new \UI\MultipleRowsText('description', 'Описание', false, 'не обязательно'));
+        $description = new \UI\MultipleRowsText('description', 'Описание', false, 'не обязательно');
+        $description->setMaxLen(512);
+        $this->appendElement($description);
         $this->appendElement(new \UI\SingleRowText('website', 'Вебсайт', false, 'не обязательно'));
         $this->appendElement(new \UI\SingleRowText('sn', 'Группа в соц.сети', false, 'не обязательно'));
         $this->appendElement(new \UI\Captcha('captcha', 'Код с картинки'));

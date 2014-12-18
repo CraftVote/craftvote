@@ -24,8 +24,8 @@ class newController extends \System\Controller {
             $project->user_id = \Auth\User::getId();
             $project->title = $input['title'];
             $project->description = $input['description'];
-            $project->sn = $input['sn'];
-            $project->website = $input['website'];
+            $project->sn = \System\URL::format($input['sn']);
+            $project->website = \System\URL::format($input['website']);
             $mapper->save();
             $ajax->ajax_redirect('/myprojects');
         }

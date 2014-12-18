@@ -22,8 +22,8 @@ class Projects extends \DB\MySQL\AbstractModel {
     public $active;
     public $date_reg;
     public $sn;
-    public $banner;
     public $user_id;
+    public $logo;
     
     public function getPrimaryKey() {
         return 'id';
