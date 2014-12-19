@@ -27,13 +27,28 @@ class Time {
                 
         if ($years == 0){
             $days = $interval->format('%d');
+            $h1 = $date1->format('H');
+            $m1 = $date1->format('i');
+            if ($$days < 2){
+                $h2 = $date2->format('H');
+                $m2 = $date2->format('i');
+                $s1 = $date1->format('s');
+                $s2 = $date2->format('s');
+            }
+            
             if ($days == 1){
+                if (($h1 > $h2)or(($h1 == $h2)and($m1 > $m2))or(($h1 == $h2)and($m1 == $m2)and($s1 > $s2))){
+                    return $date1->format('d').' '.  self::numToMonth($date1->format('n')).' в '.$h1.':'.$m1;
+                }
                 return 'вчера в '.$date1->format('H').':'.$date1->format('i');
             }
             if ($days == 0){
-                return 'сегодня в '.$date1->format('H').':'.$date1->format('i');
+                if (($h1 > $h2)or(($h1 == $h2)and($m1 > $m2))or(($h1 == $h2)and($m1 == $m2)and($s1 > $s2))){
+                    return 'вчера в '.$h1.':'.$m1;
+                }
+                return 'сегодня в '.$h1.':'.$m1;
             }
-            return $date1->format('d').' '.  self::numToMonth($date1->format('n')).' в '.$date1->format('H').':'.$date1->format('i');
+            return $date1->format('d').' '.  self::numToMonth($date1->format('n')).' в '.$h1.':'.$m1;
         }
         else {
             return $date1->format('d').' '.self::numToMonth($date1->format('n')).' '.$date1->format('Y');
