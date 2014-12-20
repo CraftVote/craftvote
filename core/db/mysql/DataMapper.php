@@ -50,6 +50,11 @@ class DataMapper
         return \DB\MySQL\Executor::fetchAll($sql);
     }
     
+    public function findAbsAll(){
+        $sql = 'SELECT * FROM '.$this->table.' ORDER BY '.$this->entity->getPrimaryKey().';';
+        return \DB\MySQL\Executor::fetchAll($sql);
+    }
+    
     public function findOne(){
         $sql = 'SELECT * FROM '.$this->table.' WHERE '. \DB\MySQL\Builder::condition($this->entity).' LIMIT 1;';
         $result = \DB\MySQL\Executor::fetchOne($sql);

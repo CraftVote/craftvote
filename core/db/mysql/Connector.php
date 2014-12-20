@@ -19,7 +19,8 @@ class Connector {
     
     private static function connect(){
  
-        mysqli_report(MYSQLI_REPORT_ALL);
+        //mysqli_report(MYSQLI_REPORT_ALL);
+        mysqli_report(MYSQLI_REPORT_ERROR);
         $config = \System\ApplicationRegistry::getConfig();
         $dbh = new \mysqli($config->db_host, $config->db_user, $config->db_password, $config->db_database);
         if (!$dbh){
