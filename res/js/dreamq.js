@@ -1,4 +1,5 @@
-$( document ).ready(function() {
+$(document).ready(function() {
+    EventRegister.changeTime();
     EventRegister.onForm(null);
     EventRegister.onFile(null);
     EventRegister.onChangeSelectDepend();
@@ -9,6 +10,21 @@ $( document ).ready(function() {
         $(this).attr("src", "/_system/captcha?"+ new Date().getTime());
     });
 });
+
+
+var Time = {
+    
+    now : function(){
+        return new Date().getTime();
+    },
+    
+    calc : function(raw, offset){
+        monthA = 'января,февраля,марта,апреля,мая,июня,июля,августа,сентября,октября,ноября,декабря'.split(',');
+        var date = new Date(raw);
+        date.setHours(date.getHours()+offset);
+        return date.getDate()+' '+monthA[date.getMonth()]+' '+date.getFullYear()+' в '+date.getHours()+':'+(date.getMinutes()<10?'0':'')+date.getMinutes();
+    }
+};
 
 var FormValidator = {
     formName : '',
@@ -333,6 +349,19 @@ function UploadFile(filename, action){
 
 
 EventRegister = {
+    
+    changeTime : function(){
+        var server = Math.floor(parseInt($('meta[name="timestamp"]').attr('content')) / 60 / 60);
+        if (parseInt === 0){
+            alert('Error: Not found META Timestamp');
+            return;
+        }
+        var client = Math.floor(Time.now() / 1000 / 60 / 60);
+        var offset = client - server;
+        jQuery.each($('.time'), function(){
+             $(this).text(Time.calc($(this).text(), offset));
+        });
+    },
     
     onForm : function(json){
         $('button[state-loading="stopped"]').bind("click", function(e){

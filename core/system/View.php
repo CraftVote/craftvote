@@ -82,10 +82,16 @@ abstract class View {
        }
        else{
             $this->context->setBuffer($this->loadFromFile('layouts '.$name));
+            $this->setTimestamp();
             $this->renderWidgets();
        }
     }
     
+    protected function setTimestamp(){
+        
+        $this->write('SERVERTIME', time());
+    }
+
     public function writeFromFile($selector, $filename){
         
         $this->write($selector, $this->loadFromFile('templates '.$filename));

@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xs-9">
         <h2><!--H_TITLE--></h2>
-        <small class="text-muted">Зарегестрирован <!--REG--></small>
+        <small class="text-muted">Зарегестрирован <span class="time"><!--REG--></span></small>
     </div>
     <div class="col-xs-3 text-right">
         <br><button class="btn btn-info">Голосовать</button>

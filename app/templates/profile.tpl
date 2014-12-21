@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-sm-3">
             <h2 class="border-bottom">Основное</h2>
-            <p><small class="text-muted">Зарегистрирован</small><br>8 декабря 2014</p>
+            <p><small class="text-muted">Зарегистрирован</small><br><small class="time">2014-12-8 12:13</small>
             <p><small class="text-muted">Владеет проектом</small><br><a href="#">MySuperProject 2.0</a></p>
             <p><small class="text-muted">Страница в соц.сети</small><br><a href="#">https://vk.com/ishibkikh</a></p>
         </div>
@@ -36,7 +36,7 @@
                     <td class="padding-left">
                         <p><a href="#"><small><b><!--NAME--></b></small></a> <span class="label label-info">Admin</span><br>
                         <i>Наши сервера самые крутые в стране. Успехов в игре!</i><br>
-                        <small class="text-muted">10 декабря 2014 в 22:58</small></p>
+                        <small class="text-muted time">2014-12-10 22:58</small></p>
                     </td>
                 </tr>
             </table>

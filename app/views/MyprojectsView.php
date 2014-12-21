@@ -29,7 +29,7 @@ class MyprojectsView extends \System\HtmlView {
         $table = new \UI\Table();
         $table->titles(['Название', 'Дата регистрации', 'Статус']);
         foreach ($projects as $row){
-            $table->addRow([$this->renderTitle($row[1], $row[0]), \System\Time::formatDateTime($row[5]), $this->renderStatus($row[4])]);
+            $table->addRow([$this->renderTitle($row[1], $row[0]), '<span class="time">'.$row[5].'</span', $this->renderStatus($row[4])]);
         }
         return $table->getHtml();
     }

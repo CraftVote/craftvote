@@ -23,10 +23,11 @@ class Identity {
         $user->email = $username;
         $mapper = new \DB\MySQL\DataMapper($user);
         if (!$mapper->findOne()){
+            self::$error = 'Неверный E-mail';
             return false;
         }
         if (!\System\Password::verify($password, $user->password)){
-            self::$error = 'Неверный E-mail или пароль';
+            self::$error = 'Неверный пароль';
             return false;
         }
         if ($user->active == 0){

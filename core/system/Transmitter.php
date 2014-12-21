@@ -50,19 +50,5 @@ class Transmitter {
     private function sendContentType($contentType, $charset){
         
         header('Content-Type: '.$contentType.';charset='.$charset);
-        
-        /*
-        switch ($type)
-        {
-            case "html": header('Content-Type: text/html;charset=utf-8'); break;
-            case "text": header('Content-Type: text/plain;charset=utf-8'); break;
-            case "xhtml": header('Content-Type: application/xhtml+xml;charset=utf-8'); break;
-            case "xml": header('Content-Type: text/xml;charset=utf-8'); break;
-            case "json": header('Content-Type: application/json;charset=utf-8'); break;
-            case "jpeg": header('Content-Type: image/jpeg'); break;
-            default: header('Content-Type: text/html;charset=utf-8'); break;
-        }
-         * 
-         */
     }
 }
