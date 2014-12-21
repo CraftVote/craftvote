@@ -41,11 +41,17 @@ class IndexView extends \System\HtmlView {
     
     protected function renderProj($title, $description, $pos, $id, $logo, $rating){
         
+        if ($pos === 1){
+            $kubok = '<i class="fa fa-trophy"></i>';
+        }
+        else{
+            $kubok = '';
+        }
         $this->body('<div class="panel panel-default">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-xs-1 text-top">
-                                    <h2 class="text-primary">'.$pos.'</h2>
+                                    <h2 class="text-primary">'.$pos.$kubok.'</h2>
                                 </div>
                                 <div class="col-xs-11">
                                     <div class="row">
