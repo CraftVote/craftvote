@@ -14,7 +14,8 @@
 class IndexController extends \System\Controller {
     
     public function get() {
-        $this->setParam('time', time());
+        
+        $this->setParam('items', \Custom\Project::getActive());
     }
     
     public function allowAccess() {

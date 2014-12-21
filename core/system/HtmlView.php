@@ -61,7 +61,7 @@ abstract class HtmlView extends View {
     }
     
     public function pageHeader($text){
-        $this->body('<div class="page-header"><h1>'.$text.'</h1></div>');
+        $this->body('<div class="page-header"><h1 class="text-warning">'.$text.'</h1></div>');
     }
         
     public function getSelectOptions($items, $key, $value){

@@ -1,4 +1,4 @@
-<div class="page-header"><h1>Информация о счёте</h1></div>
+<div class="page-header"><h1 class="text-warning">Информация о счёте</h1></div>
 <div class="row">
     <div class="col-sm-8">
         <h3>Остаток</h3>
