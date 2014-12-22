@@ -16,8 +16,8 @@ class IndexView extends \System\HtmlView {
     public function execute() {
         
         $this->layout('general');
-        $this->title('Рейтинг проектов Warcraft');
-        $this->pageHeader('Рейтинг проектов Warcraft');
+        $this->title('Рейтинг проектов Minecraft');
+        $this->pageHeader('Рейтинг проектов Minecraft');
         $this->renderProjects($this->getParam('items'));
     }
     

@@ -27,6 +27,8 @@ class MyprojectsView extends \System\HtmlView {
         }
         
         $table = new \UI\Table();
+        $table->striped();
+        $table->bordered();
         $table->titles(['Название', 'Дата регистрации', 'Статус']);
         foreach ($collection as $row){
             $table->addRow([$this->renderTitle($row->title, $row->id), '<span class="time">'.$row->date_reg.'</span', $this->renderStatus($row->active)]);
