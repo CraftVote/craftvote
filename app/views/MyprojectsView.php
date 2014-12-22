@@ -20,16 +20,16 @@ class MyprojectsView extends \System\HtmlView {
         $this->write('PROJECTS', $this->renderProjects($this->getParam('projects')));
     }
     
-    protected function renderProjects($projects){
+    protected function renderProjects($collection){
         
-        if ($projects === FALSE){
+        if (count($collection) === 0){
             return '<p class="text-muted">Проекты еще не созданы</p>';
         }
         
         $table = new \UI\Table();
         $table->titles(['Название', 'Дата регистрации', 'Статус']);
-        foreach ($projects as $row){
-            $table->addRow([$this->renderTitle($row[1], $row[0]), '<span class="time">'.$row[5].'</span', $this->renderStatus($row[4])]);
+        foreach ($collection as $row){
+            $table->addRow([$this->renderTitle($row->title, $row->id), '<span class="time">'.$row->date_reg.'</span', $this->renderStatus($row->active)]);
         }
         return $table->getHtml();
     }

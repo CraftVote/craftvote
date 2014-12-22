@@ -18,12 +18,10 @@ class Executor {
     private function __construct() {}
     
     static private function exeucute(\mysqli $mysql, $sql){
-        try
-        {
+        try{
             $result = $mysql->query($sql);
         }
-        catch (mysqli_sql_exception $e)
-        {
+        catch (mysqli_sql_exception $e){
             throw new \System\Exception($e->getMessage());
         }
         return $result;
@@ -44,14 +42,7 @@ class Executor {
     
     static public function fetchAll($sql){
         $collection = self::exeucute(\DB\MySQL\Connector::getInstance(), $sql);
-        if ($collection->num_rows === 0){
-            $result = false;
-        }
-        else{
-            $result = $collection->fetch_all();
-        }
-        $collection->close();
-        return $result;
+        return new Collection($collection);
     }
     
     static public function insert($sql){

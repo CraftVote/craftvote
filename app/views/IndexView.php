@@ -15,26 +15,25 @@ class IndexView extends \System\HtmlView {
     
     public function execute() {
         
-        $time = $this->getParam('time');
         $this->layout('general');
         $this->title('Рейтинг проектов Warcraft');
         $this->pageHeader('Рейтинг проектов Warcraft');
         $this->renderProjects($this->getParam('items'));
     }
     
-    protected function renderProjects($items){
+    protected function renderProjects($collection){
         
-        if ($items === FALSE){
+        if (count($collection) === 0){
             $this->p_muted('Проекты не найдены');
             return;
         }
         
         $i = 1;
-        foreach ($items as $pr){
-            if ($pr[8] == NULL){
-                $pr[8] = 'default.png';
+        foreach ($collection as $pr){
+            if ($pr->logo == NULL){
+                $pr->logo = 'default.png';
             }
-            $this->renderProj($pr[1], $pr[2], $i, $pr[0], $pr[8], $pr[9]);
+            $this->renderProj($pr->title, $pr->description, $i, $pr->id, $pr->logo, $pr->rating);
             $i++;
         }
     }
@@ -51,7 +50,7 @@ class IndexView extends \System\HtmlView {
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-xs-1 text-top">
-                                    <h2 class="text-primary">'.$pos.$kubok.'</h2>
+                                    <h1 class="text-primary">'.$pos.$kubok.'</h1>
                                 </div>
                                 <div class="col-xs-11">
                                     <div class="row">

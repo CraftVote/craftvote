@@ -22,17 +22,17 @@ class BalanceView extends \System\HtmlView {
         $this->write('OPERATIONS', $this->renderOperations($this->getParam('operations')));
     }
     
-    protected function renderOperations($operations){
+    protected function renderOperations($collection){
         
-        if ($operations === false){
+        if (count($collection) === 0){
             return '<p class="text-muted">Операций нет</p>';
         }
         $table = new \UI\Table();
         $table->striped();
         $table->bordered();
         $table->titles(['ID','Дата','Тип','Направление','Сумма','Комментарий']);
-        foreach ($operations as $op){
-            $table->addRow([$op[0],'<span class="time">'.$op[2].'</span>',$op[3],$this->formatDirection($op[6]),$op[4],$op[5]]);
+        foreach ($collection as $op){
+            $table->addRow([$op->id,'<span class="time">'.$op->date_reg.'</span>',$op->type,$this->formatDirection($op->direction),$op->amount,$op->comment]);
         }
         return $table->getHtml();
     }

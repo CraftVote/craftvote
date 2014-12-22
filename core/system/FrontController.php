@@ -36,7 +36,7 @@ class FrontController {
             ini_set('log_errors', '1');
             ini_set('error_reporting', E_ERROR);
         }
-        date_default_timezone_set($config->timezone);
+        date_default_timezone_set('Europe/Moscow');
         ini_set('default_charset', 'UTF-8');
         ini_set("zlib.output_compression", 'on');
     }
