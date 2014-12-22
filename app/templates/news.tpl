@@ -1,4 +1,4 @@
-<div class="page-header"><h1 class="text-warning">Новости</h1></div>
+<div class="page-header"><h1>Новости</h1></div>
 
 <div class="panel panel-default">
     <div class="panel-body">

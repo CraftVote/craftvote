@@ -105,3 +105,7 @@ a.list-group-item {
 .panel-body img {
     margin: 10px 0 10px 0;
 }
+
+.page-header h1 {
+    color: #777;
+}
