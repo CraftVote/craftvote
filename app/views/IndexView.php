@@ -50,7 +50,7 @@ class IndexView extends \System\HtmlView {
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-xs-1 text-top">
-                                    <h1 class="text-primary">'.$pos.$kubok.'</h1>
+                                    <h1 class="text-primary">'.$pos.'</h1><h3 class="text-warning">'.$kubok.'</h3>
                                 </div>
                                 <div class="col-xs-11">
                                     <div class="row">
