@@ -22,6 +22,15 @@ class ProjectController extends \System\Controller {
         }
         else{
             $this->setParam('project', $result);
+            if (\Auth\User::isAuth()){
+                if ($result['user_id'] !== \Auth\User::getId()){
+                    \Custom\Project::increaseVisits($result['id']);
+                }
+            }
+            else{
+                \Custom\Project::increaseVisits($result['id']);
+            }
+            
         }
     }
     

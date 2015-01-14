@@ -26,6 +26,7 @@ class Projects extends \DB\MySQL\AbstractModel {
     public $logo;
     public $rating;
     public $votes;
+    public $visits;
     
     public function getPrimaryKey() {
         return 'id';

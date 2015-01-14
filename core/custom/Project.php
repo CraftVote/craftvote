@@ -26,6 +26,18 @@ class Project {
             $mapper->save();
         }
     }
+    
+    static public function increaseVisits($project_id){
+        
+        $project = new \Models\Tables\Projects();
+        $mapper = new \DB\MySQL\DataMapper($project);
+        if ($mapper->findById($project_id)){
+            $visits = intval($project->visits);
+            $project->clear();
+            $project->visits = $visits + 1;
+            $mapper->save();
+        }
+    }
 
     static public function getByUserId($id){
         $sql = 'SELECT * FROM projects WHERE user_id = '.intval($id).' ORDER BY id DESC';
@@ -33,7 +45,7 @@ class Project {
     }
     
     static public function getByProjectId($id){
-        $sql = 'SELECT p.id, p.votes, p.title, p.description, p.active, p.date_reg, p.website, p.sn, p.logo, u.name, u.id as user_id FROM projects p LEFT JOIN users u ON p.user_id = u.id  WHERE p.id = '.$id.' LIMIT 1;';
+        $sql = 'SELECT p.id, p.votes, p.visits, p.title, p.description, p.active, p.date_reg, p.website, p.sn, p.logo, u.name, u.id as user_id FROM projects p LEFT JOIN users u ON p.user_id = u.id  WHERE p.id = '.$id.' LIMIT 1;';
         return \DB\MySQL\Executor::fetchOne($sql);
     }
     
