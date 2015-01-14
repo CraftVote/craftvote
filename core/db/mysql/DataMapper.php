@@ -35,10 +35,10 @@ class DataMapper
     
     public function findOneByField($name, $value){
         if (is_string($value)){
-            $sql = 'SELECT * FROM '.$this->table.' WHERE '.$name.' = "'.$value.'" ORDER by '.$this->entity->getPrimaryKey().' LIMIT 1;';
+            $sql = 'SELECT * FROM '.$this->table.' WHERE '.$name.' = "'.$value.'" ORDER by '.$this->entity->getPrimaryKey().' DESC LIMIT 1;';
         }
         else{
-            $sql = 'SELECT * FROM '.$this->table.' WHERE '.$name.' = '.$value.' ORDER by '.$this->entity->getPrimaryKey().' LIMIT 1;';
+            $sql = 'SELECT * FROM '.$this->table.' WHERE '.$name.' = '.$value.' ORDER by '.$this->entity->getPrimaryKey().' DESC LIMIT 1;';
         }
         $result = \DB\MySQL\Executor::fetchOne($sql);
         if (!$result){
