@@ -9,24 +9,18 @@
 namespace Models\Tables;
 
 /**
- * Description of Projects
+ * Description of Votes
  *
  * @author ishibkikh
  */
-class Projects extends \DB\MySQL\AbstractModel {
+class Votes extends \DB\MySQL\AbstractModel {
     
     public $id;
-    public $title;
-    public $description;
-    public $website;
-    public $active;
-    public $date_reg;
-    public $sn;
-    public $user_id;
-    public $logo;
-    public $rating;
-    public $votes;
-    
+    public $vk_id;
+    public $ip;
+    public $date;
+    public $project_id;
+        
     public function getPrimaryKey() {
         return 'id';
     }

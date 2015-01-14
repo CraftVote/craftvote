@@ -32,6 +32,23 @@ class DataMapper
     public function getTableName(){
         return $this->table;
     }
+    
+    public function findOneByField($name, $value){
+        if (is_string($value)){
+            $sql = 'SELECT * FROM '.$this->table.' WHERE '.$name.' = "'.$value.'" ORDER by '.$this->entity->getPrimaryKey().' LIMIT 1;';
+        }
+        else{
+            $sql = 'SELECT * FROM '.$this->table.' WHERE '.$name.' = '.$value.' ORDER by '.$this->entity->getPrimaryKey().' LIMIT 1;';
+        }
+        $result = \DB\MySQL\Executor::fetchOne($sql);
+        if (!$result){
+            return false;
+        }
+        else{
+            $this->entity->assignFromArray($result);
+            return true;
+        }
+    }
 
     public function findById($id){
         $sql = 'SELECT * FROM '.$this->table.' WHERE '.$this->entity->getPrimaryKey().' = '.$id. ' LIMIT 1;';
@@ -72,19 +89,24 @@ class DataMapper
         $sql = 'DELETE FROM '.$this->table.' WHERE '.$this->entity->getPrimaryKey().' = '.$this->entity->getId().';';
         return \DB\MySQL\Executor::modify($sql);
     }
+        
+    public function insert(){
+    
+        $this->entity->setId(null);
+        $sql = 'INSERT INTO '.$this->table.' ('. \DB\MySQL\Builder::fields($this->entity).') VALUES ('. \DB\MySQL\Builder::values($this->entity).');';
+        $id = \DB\MySQL\Executor::insert($sql);
+        if ($id){
+            $this->entity->setId($id);
+            return $id;
+        }
+        else{
+            return false;
+        }
+    }
     
     public function save(){
         if ($this->entity->getId() == null){
-            $sql = 'INSERT INTO '.$this->table.' ('. \DB\MySQL\Builder::fields($this->entity).') VALUES ('. \DB\MySQL\Builder::values($this->entity).');';
-            $id = \DB\MySQL\Executor::insert($sql);
-            if ($id){
-                $this->entity->setId($id);
-                return $id;
-            }
-            else{
-                return false;
-            }
-            
+            return $this->insert();            
         }
         else{
             $sql = 'UPDATE '.$this->table.' SET '.\DB\MySQL\Builder::items($this->entity).' WHERE '.$this->entity->getPrimaryKey().' = '.$this->entity->getId().';';

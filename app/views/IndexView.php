@@ -33,12 +33,12 @@ class IndexView extends \System\HtmlView {
             if ($pr->logo == NULL){
                 $pr->logo = 'default.png';
             }
-            $this->renderProj($pr->title, $pr->description, $i, $pr->id, $pr->logo, $pr->rating);
+            $this->renderProj($pr->title, $pr->description, $i, $pr->id, $pr->logo, $pr->rating, $pr->votes);
             $i++;
         }
     }
     
-    protected function renderProj($title, $description, $pos, $id, $logo, $rating){
+    protected function renderProj($title, $description, $pos, $id, $logo, $rating, $votes){
         
         if ($pos === 1){
             $kubok = '<i class="fa fa-trophy"></i>';
@@ -65,8 +65,8 @@ class IndexView extends \System\HtmlView {
                         </div>
                         <div class="panel-footer">
                             <div class="row">
-                                <div class="col-xs-6"><p class="text-muted"><small><span class="glyphicon glyphicon-stats"></span> '.$rating.'</small> | <small><span class="glyphicon glyphicon-eye-open"></span> 1149</small> | <small><span class="glyphicon glyphicon-heart"></span> 45</small></p></div>
-                                <div class="col-xs-6 text-right"><button class="btn btn-success btn-xs btn-width-md">Голосовать</button></div>
+                                <div class="col-xs-6"><p class="text-muted"><small><span class="glyphicon glyphicon-stats"></span> '.$rating.'</small> | <small><span class="glyphicon glyphicon-eye-open"></span> 0</small> | <small><span class="glyphicon glyphicon-heart"></span> '.$votes.'</small></p></div>
+                                <div class="col-xs-6 text-right"><button onclick="voteProject(\''.$id.'\');" class="btn btn-success btn-xs btn-width-md">Голосовать</button></div>
                             </div>    
                         </div>
                     </div>');

@@ -15,14 +15,21 @@ namespace System;
  */
 class Time {
     
+    
+    static public function diffDays($mysql_timestamp){
+        $date1 = \DateTime::createFromFormat('Y-m-d H:i:s', $mysql_timestamp);
+        $date2 = new \DateTime('NOW');
+        $interval = $date1->diff($date2);
+        return intval($interval->format('%d'));
+    }
+
+
     static public function formatDateTime($input){
         
         $date1 = \DateTime::createFromFormat('Y-m-d H:i:s', $input);
         $date2 = new \DateTime('NOW');
         
         $interval = $date1->diff($date2);
-        
-        
         $years = $interval->format('%Y');
                 
         if ($years == 0){

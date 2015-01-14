@@ -15,6 +15,17 @@ namespace Custom;
  */
 class Project {
     
+    static public function increaseVotes($project_id){
+        
+        $project = new \Models\Tables\Projects();
+        $mapper = new \DB\MySQL\DataMapper($project);
+        if ($mapper->findById($project_id)){
+            $project->clear();
+            $project->votes = intval($project->votes) + 1;
+            $mapper->save();
+        }
+    }
+
     static public function getByUserId($id){
         $sql = 'SELECT * FROM projects WHERE user_id = '.intval($id).' ORDER BY id DESC';
         return \DB\MySQL\Executor::fetchAll($sql);

@@ -31,7 +31,7 @@
                 <!--BODY-->
             </div>
         <div id="footer">
-          © 2014 CraftVote.Ru All Rights Reserved
+          © 2014 CraftVote.Ru all rights reserved
         </div>
     </body>
 </html>

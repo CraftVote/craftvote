@@ -21,6 +21,8 @@
         <script language="javascript" type="text/javascript" src="/res/js/jquery-1.11.1.min.js"></script>
         <script language="javascript" type="text/javascript" src="/res/js/bootstrap.js"></script>
         <script language="javascript" type="text/javascript" src="/res/js/dreamq.js"></script>
+        <script type="text/javascript" src="https://vk.com/js/api/openapi.js?116"></script>
+        <script language="javascript" type="text/javascript" src="/res/js/social.js"></script>
         <!--H_SCRIPT-->
         <title><!--H_TITLE--> | ТОП серверов Minecraft</title>
     </head>
@@ -47,7 +49,7 @@
                 </div>
             </div>
         <div id="footer">
-          © 2014 CraftVote.Ru All Rights Reserved
+          © 2014 CraftVote.Ru all rights reserved
         </div>
     </body>
 </html>
