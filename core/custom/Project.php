@@ -20,8 +20,9 @@ class Project {
         $project = new \Models\Tables\Projects();
         $mapper = new \DB\MySQL\DataMapper($project);
         if ($mapper->findById($project_id)){
+            $votes = intval($project->votes);
             $project->clear();
-            $project->votes = intval($project->votes) + 1;
+            $project->votes = $votes + 1;
             $mapper->save();
         }
     }
