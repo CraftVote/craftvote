@@ -48,5 +48,6 @@ class ProjectView extends \System\View {
         $this->write('REG', $project['date_reg']);
         $this->write('USER_ID', $project['user_id']);
         $this->write('USER_NAME', $project['name']);
+        $this->write('RATING', $project['rating']);
     }
 }

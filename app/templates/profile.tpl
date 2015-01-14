@@ -10,7 +10,7 @@
         <div class="col-xs-9 col-sm-10">
             <h1><!--NAME--></h1>
             <p class="profile-role"> Администратор</p>
-            <p class="text-muted"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Москва | <span class="glyphicon glyphicon-stats" aria-hidden="true"></span> 14 | <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 1048 | <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 137</p>
+            <p class="text-muted"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Москва | <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 1048 | <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 137</p>
             <p>
                 <button class="btn btn-primary btn-sm btn-width-md btn-profile"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Сообщение</button>
                 <button class="btn btn-success btn-sm btn-width-md btn-profile"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Нравится</button>
@@ -23,8 +23,11 @@
         <div class="col-sm-3">
             <h2 class="border-bottom">Основное</h2>
             <p><small class="text-muted">Зарегистрирован</small><br><small class="time">2014-12-8 12:13</small>
-            <p><small class="text-muted">Владеет проектом</small><br><a href="#">MySuperProject 2.0</a></p>
-            <p><small class="text-muted">Страница в соц.сети</small><br><a href="#">https://vk.com/ishibkikh</a></p>
+            <p><small class="text-muted">Страница в соц.сети<br><a href="#">https://vk.com/ishibkikh</a></small></p>
+            <p><small class="text-muted">Владеет проектами
+                <br><a href="#">My First Project 1.0</a>
+                <br><a href="#">My Second Project 2.0</a>
+            </small></p>
         </div>
         <div class="col-sm-9">
             <h2 class="border-bottom">Лента</h2>

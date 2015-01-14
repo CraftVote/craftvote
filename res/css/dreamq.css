@@ -64,6 +64,10 @@ and open the template in the editor.
     padding-right: 1em;
 }
 
+.padding-top {
+    padding-top: 1em;
+}
+
 .text-top {
     vertical-align: text-top;
 }

@@ -1,10 +1,14 @@
 <div class="row">
     <div class="col-xs-9">
         <h2><!--H_TITLE--></h2>
-        <small class="text-muted">Зарегестрирован <span class="time"><!--REG--></span></small>
+        <p class="text-muted">
+            <small class="text-muted">Зарегестрирован <span class="time"><!--REG--></span></small>
+            <br>
+            <small title="Рейтинг"><span class="glyphicon glyphicon-stats"></span> <!--RATING--></small> | <small title="Голосов"><span class="glyphicon glyphicon-heart"></span> <!--VOTES--></small> | <small title="Просмотров"><span class="glyphicon glyphicon-eye-open"></span> <!--VISITS--></small> | <small title="Отзывов"><span class="glyphicon glyphicon-comment"></span> 0</small>
+        </p>    
     </div>
     <div class="col-xs-3 text-right">
-        <br><small class="text-muted"><span class="glyphicon glyphicon-eye-open"></span> <!--VISITS--></small> | <small class="text-muted padding-right"><span class="glyphicon glyphicon-heart"></span> <!--VOTES--></small> <button onclick="voteProject('<!--ID-->');" class="btn btn-success">Голосовать</button>
+        <p class="padding-top"><button onclick="voteProject('<!--ID-->');" class="btn btn-success">Голосовать</button></p>
     </div>
 </div>
 <hr>
@@ -15,6 +19,7 @@
 <ul class="nav nav-tabs">
   <li role="presentation" class="active"><a href="#">Основная информация</a></li>
   <li role="presentation"><a href="#">Сервера</a></li>
+  <li role="presentation"><a href="#">Отзывы</a></li>
 </ul>
 <div class="nav-container">
     <table>
