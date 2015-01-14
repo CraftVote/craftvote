@@ -4,7 +4,7 @@
         <small class="text-muted">Зарегестрирован <span class="time"><!--REG--></span></small>
     </div>
     <div class="col-xs-3 text-right">
-        <br><button class="btn btn-info">Голосовать</button>
+        <br><small class="text-muted padding-right"><span class="glyphicon glyphicon-heart"></span> <!--VOTES--></small> <button onclick="voteProject('<!--ID-->');" class="btn btn-success">Голосовать</button>
     </div>
 </div>
 <hr>

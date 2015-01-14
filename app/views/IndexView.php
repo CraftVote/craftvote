@@ -50,14 +50,14 @@ class IndexView extends \System\HtmlView {
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-xs-1 text-top">
-                                    <h1 class="text-primary">'.$pos.'</h1><h3 class="text-warning">'.$kubok.'</h3>
+                                    <h1 class="text-muted">'.$pos.'</h1><h3 class="text-warning">'.$kubok.'</h3>
                                 </div>
                                 <div class="col-xs-11">
                                     <div class="row">
                                         <div class="col-sm-5">
-                                            <h3 class="text-default">'.$title.'</h3>
+                                            <h3 class="text-default"><a class="noline" href="/project/'.$id.'">'.$title.'</a></h3>
                                         </div>
-                                        <div class="col-sm-7"><img class="img-responsive img-rounded" src="/res/img/projects/'.$logo.'"></div>
+                                        <div class="col-sm-7"><a href="/project/'.$id.'"><img class="img-responsive img-rounded" src="/res/img/projects/'.$logo.'"></a></div>
                                     </div>  
                                     <small class="text-muted">'.$description.'</small>
                                 </div>

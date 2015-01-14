@@ -60,6 +60,10 @@ and open the template in the editor.
     padding-left: 1em;
 }
 
+.padding-right {
+    padding-right: 1em;
+}
+
 .text-top {
     vertical-align: text-top;
 }
@@ -73,4 +77,8 @@ and open the template in the editor.
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     padding: 20px 10px;
+}
+
+a.noline {
+    text-decoration: none;
 }
