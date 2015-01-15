@@ -15,20 +15,16 @@ namespace System;
  */
 class Config {
     
-    private $params = array();
+    static private $params = array();
     
-    public function __get($name) {
-        if (!isset($this->params[$name])){
+    static public function get($name) {
+        if (!isset(self::$params[$name])){
             throw new \System\Exception('Not found "'.$name.'" param in the config');
         }
-        return $this->params[$name];
+        return self::$params[$name];
     }
     
-    public function __set($name, $value) {
-        throw new \System\Exception('You cannot rewrite exists config params');
-    }
-    
-    public function __construct(array $array) {
-        $this->params = $array;
+    static public function load(array $array) {
+        self::$params = $array;
     }
 }

@@ -6,6 +6,7 @@
  * and open the template in the editor.
  */
 namespace System;
+
 /**
  * Description of FrontController
  *
@@ -15,18 +16,18 @@ class FrontController {
     
     private function __construct(){}
     
-    protected function onInit(){
+    protected function onInit($config){
         
-        \System\Logger::init();
-        \System\Session::init();
+        Logger::init();
+        Session::init();
         
-        $config = \System\ApplicationRegistry::getConfig();
+        Config::load($config['environment'][$config['now']]);
         
         ini_set('display_errors','0');
         ini_set('log_errors', '1');
         ini_set('error_reporting', E_ERROR);
         
-        if ($config->debug == 1){
+        if (Config::get('debug') == true){
             ini_set('display_errors','1');
             ini_set('log_errors', '0');
             ini_set("error_reporting", E_ALL ^ E_NOTICE);
@@ -39,6 +40,7 @@ class FrontController {
         date_default_timezone_set('Europe/Moscow');
         ini_set('default_charset', 'UTF-8');
         ini_set("zlib.output_compression", 'on');
+        
     }
     
     
@@ -83,9 +85,9 @@ class FrontController {
         return true;
     }
 
-    static public function run(){
+    static public function run($config){
         $instance = new self();
-        $instance->onInit();
+        $instance->onInit($config);
         $service = new \System\Service();
         $context = $service->getContext();
         if ($context->getResponseCode() === 404){

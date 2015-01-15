@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `visits` bigint(20) unsigned NOT NULL DEFAULT '0',
   UNIQUE KEY `id` (`id`),
   KEY `user_id` (`user_id`),
-  KEY `rating` (`rating`)
+  KEY `rating` (`rating`),
+  KEY `active` (`active`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 

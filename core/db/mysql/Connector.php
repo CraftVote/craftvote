@@ -8,6 +8,7 @@
 
 namespace DB\MySQL;
 
+use \System\Config;
 /**
  * Description of MySQL
  *
@@ -15,16 +16,21 @@ namespace DB\MySQL;
  */
 class Connector {
     
+    
+    
     protected static $_instance;
     
     private static function connect(){
  
-        //mysqli_report(MYSQLI_REPORT_ALL);
-        mysqli_report(MYSQLI_REPORT_ERROR);
-        $config = \System\ApplicationRegistry::getConfig();
-        $dbh = new \mysqli($config->db_host, $config->db_user, $config->db_password, $config->db_database);
+        if (Config::get('debug') == true){
+            mysqli_report(MYSQLI_REPORT_ALL);
+        }
+        else{
+            mysqli_report(MYSQLI_REPORT_ERROR);
+        }
+        $dbh = new \mysqli(Config::get('db_host'), Config::get('db_user'), Config::get('db_password'), Config::get('db_name'));
         if (!$dbh){
-            throw new \System\Exception('Unable connect to DB ('.$config->db_database.')');
+            throw new \System\Exception('Unable connect to DB ('.Config::get('db_name').')');
         }
         $dbh->set_charset("utf8");
         return $dbh;
