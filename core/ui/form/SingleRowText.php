@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace UI;
+namespace UI\Form;
 
 /**
  * Description of SingleRowText
@@ -54,7 +54,7 @@ class SingleRowText extends AbstractTextValue {
     public function __construct($name, $label, $required = false, $placeholder = null) {
         $this->setName($name);
         $this->setMinLen(4);
-        $this->setMaxLen(128);
+        $this->setMaxLen(256);
         $this->setLabel($label);
         $this->setType(\Form\ElementTypes::INPUT_TEXT);
         if ($required){

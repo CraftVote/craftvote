@@ -25,9 +25,9 @@ class PasswordRecovery extends \Form\AbstractModel {
         $this->setLabelLen(3);
         $this->setFieldLen(5);
         
-        $this->appendElement(new \UI\Email('email', 'E-mail', true));
-        $this->appendElement(new \UI\Captcha('captcha', 'Код'));
+        $this->appendElement(new \UI\Form\Email('email', 'E-mail', true));
+        $this->appendElement(new \UI\Form\Captcha('captcha', 'Код'));
         $this->appendHr();
-        $this->appendButton(new \UI\Button\RecoveryButton());
+        $this->appendButton(new \UI\Form\Button\RecoveryButton());
     }
 }

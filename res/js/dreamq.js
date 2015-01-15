@@ -335,7 +335,7 @@ function UploadFile(filename, action){
         });  
     };
     this.upload = function(callback){
-        $('#file-label').html('<img src="/res/img/ajax-small.gif">');
+        $('#file-label').html('<img src="/res/img/system/ajax-loader.gif">');
         $("#file-btn").hide();
         if (typeof callback === "function"){
             this.doRequest(callback, this.processFail, this.processError);
@@ -786,7 +786,7 @@ Modal = {
     },
     
     createLayout : function(){
-        $("body").append('<div id="main-modal" class="modal fade" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div id="modal-alert"></div><div class="modal-body"><p><div class="block-center"><img src="/res/img/ajax-loader.gif"></div></p></div><div class="modal-footer"></div></div></div></div>');
+        $("body").append('<div id="main-modal" class="modal fade" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div id="modal-alert"></div><div class="modal-body"><p><div class="block-center"><img src="/res/img/system/ajax-loader.gif"></div></p></div><div class="modal-footer"></div></div></div></div>');
     }
     
 };

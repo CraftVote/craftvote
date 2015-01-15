@@ -110,7 +110,7 @@ abstract class AbstractModel {
     }
     
     public function appendHr(){
-        $this->elements[] = new \UI\Hr();
+        $this->elements[] = new \UI\Form\Hr();
     }
     
     public function autocompleteOff(){

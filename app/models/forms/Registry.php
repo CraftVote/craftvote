@@ -21,20 +21,20 @@ class Registry extends \Form\AbstractModel {
         $this->setTitle("Регистрация");
         $this->setLabelLen(3)->setFieldLen(5);
         
-        $this->appendElement(new \UI\SingleRowText('name', 'Фамилия Имя', true));
-        $this->appendElement(new \UI\SingleRowText('city', 'Город', true));
-        $email = new \UI\Email('email', 'E-mail', true);
+        $this->appendElement(new \UI\Form\SingleRowText('name', 'Фамилия Имя', true));
+        $this->appendElement(new \UI\Form\SingleRowText('city', 'Город', true));
+        $email = new \UI\Form\Email('email', 'E-mail', true);
         $email->setValidation(\Form\ElementValidations::DB_UNIQUE_FIELD, array("users","email"));
         $email->setPlaceholder('Необходимо будет подтвердить');
         $this->appendElement($email);
         $this->appendHr();
-        $this->appendElement(new \UI\Password('password', 'Придумайте пароль'));
-        $pass = new \UI\Password('repassword', 'Повторите пароль');
+        $this->appendElement(new \UI\Form\Password('password', 'Придумайте пароль'));
+        $pass = new \UI\Form\Password('repassword', 'Повторите пароль');
         $pass->setEqualField("password");
         $this->appendElement($pass);
         $this->appendHr();
-        $this->appendElement(new \UI\Captcha('captcha', 'Код с картинки'));
+        $this->appendElement(new \UI\Form\Captcha('captcha', 'Код с картинки'));
         $this->appendHr();
-        $this->appendButton(new \UI\Button\RegistryButton());        
+        $this->appendButton(new \UI\Form\Button\RegistryButton());        
     }
 }

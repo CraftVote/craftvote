@@ -6,22 +6,38 @@
  * and open the template in the editor.
  */
 
-namespace UI;
+namespace UI\Form;
 
 /**
- * Description of Captcha
+ * Description of Textarea
  *
  * @author ishibkikh
  */
-class Captcha extends AbstractTextValue {
+class MultipleRowsText extends AbstractTextValue{
     
-    public function __construct($name, $label) {
+    private $rows = 7;
+    
+    public function setRows($int){
+        $this->rows = $int;
+        return $this;
+    }
+    
+    public function getRows(){
+        return $this->rows;
+    }
+
+    public function __construct($name, $label, $required = false, $placeholder = null) {
         $this->setName($name);
         $this->setLabel($label);
-        $this->setRequired();
-        $this->setMaxLen(8);
-        $this->setType(\Form\ElementTypes::CAPTCHA);
-    }
+        if ($placeholder !== null){
+            $this->setPlaceholder($placeholder);
+        }
+        if ($required){
+            $this->setRequired();
+        }
+        $this->setType(\Form\ElementTypes::TEXTAREA);
+        $this->setMaxLen(4096);
+    }    
     
     public function getArray() {
         return array(
@@ -33,21 +49,25 @@ class Captcha extends AbstractTextValue {
             'maxlen' => $this->getMaxLen(),
             'value' => $this->getValue(),
             'validation' => $this->getValidationArray(),
+            'rows' => $this->getRows(),
             'disabled' => $this->isDisabled()
         );
     }
     
     public function getHtml() {
+        
         $at = new \Form\ConstructAttributes();
         $at->append('name', $this->getName());
+        $at->append('maxlength', $this->getMaxLen());
+        if ($this->isDisabled()){
+            $at->append('disabled', 'disabled');
+        }
         if ($this->getPlaceholder() !== null){
             $at->append('placeholder', $this->getPlaceholder());
         }
-        if($this->isDisabled()){
-            $at->append('disabled', null);
-        }
-        $at->append('maxlength', $this->getMaxLen());
+        $at->append('rows', $this->getRows());
         
-        return '<div class="row"><div class="col-xs-6"><img id="captcha-img" src="/_system/captcha"></div><div class="col-xs-6"><input class="form-control" type="text" '.$at->render().'></div></div>';
+        return '<textarea class="form-control" '.$at->render().'>'.$this->getValue().'</textarea>';
     }
+    
 }

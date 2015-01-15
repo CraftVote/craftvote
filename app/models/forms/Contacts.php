@@ -22,14 +22,14 @@ class Contacts extends \Form\AbstractModel {
         $this->setLabelLen(3)->setFieldLen(7);
         
         if (!\Auth\User::isAuth()){
-            $this->appendElement(new \UI\SingleRowText('name', 'Ваше имя', true));
-            $this->appendElement(new \UI\Email('email', 'E-mail', true));
+            $this->appendElement(new \UI\Form\SingleRowText('name', 'Ваше имя', true));
+            $this->appendElement(new \UI\Form\Email('email', 'E-mail', true));
         }
-        $this->appendElement(new \UI\SingleRowText('topic', 'Тема', true));
-        $this->appendElement(new \UI\MultipleRowsText('message', 'Описание', true));
-        $this->appendElement(new \UI\Captcha('captcha', 'Код'));
+        $this->appendElement(new \UI\Form\SingleRowText('topic', 'Тема', true));
+        $this->appendElement(new \UI\Form\MultipleRowsText('message', 'Описание', true));
+        $this->appendElement(new \UI\Form\Captcha('captcha', 'Код'));
         $this->appendHr();
-        $this->appendButton(new \UI\Button\SendButton());        
+        $this->appendButton(new \UI\Form\Button\SendButton());        
     }
 }
        

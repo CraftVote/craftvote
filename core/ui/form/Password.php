@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace UI;
+namespace UI\Form;
 
 /**
  * Description of Password

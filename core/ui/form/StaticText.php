@@ -6,32 +6,32 @@
  * and open the template in the editor.
  */
 
-namespace UI;
+namespace UI\Form;
 
 /**
- * Description of Hidden
+ * Description of StaticText
  *
  * @author ishibkikh
  */
-class Hidden extends AbstractInputValue {
+class StaticText extends AbstractInputValue{
     
-    public function __construct($name, $value) {
-        $this->setName($name);
-        $this->setValue($value);
-        $this->setType(\Form\ElementTypes::HIDDEN);
+    public function __construct($label, $text) {
+        $this->setLabel($label);
+        $this->setValue($text);
+        $this->setType(\Form\ElementTypes::STATIC_TEXT);
     }
 
-    public function getHtml() {
-        return '<input type="hidden" name="'.$this->getName().'" value="'.$this->getValue().'">';
-    }
-    
+
     public function getArray() {
         return array(
-            'label' => null,
-            'required' => true,
+            'label' => $this->getLabel(),
             'type' => $this->getType(),
             'value' => $this->getValue(),
             'validation' => $this->getValidationArray()
         );
+    }
+    
+    public function getHtml() {
+        return '<p class="form-control-static">'.$this->getValue().'</p>';
     }
 }

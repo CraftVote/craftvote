@@ -6,17 +6,18 @@
  * and open the template in the editor.
  */
 
-namespace UI;
+namespace UI\Form;
 
 /**
- * Description of Email
+ * Description of Number
  *
  * @author Ivan
  */
-class Email extends SingleRowText {
+class Number extends SingleRowText {
     
     public function __construct($name, $label, $required = false) {
         parent::__construct($name, $label, $required);
-        $this->setValidation(\Form\ElementValidations::EMAIL);
+        $this->setValidation(\Form\ElementValidations::NUMBER);
+        $this->setMinLen(1);
     }
 }
