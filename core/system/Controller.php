@@ -19,6 +19,10 @@ abstract class Controller {
     
     abstract public function allowAccess();
     
+    public function getAction(){
+        return $this->context->getAction();
+    }
+    
     public function close(){
         $this->context->setCloseRunning();
         $this->context->setComplited();

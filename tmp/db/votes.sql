@@ -5,5 +5,6 @@ CREATE TABLE IF NOT EXISTS `votes` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `project_id` int(10) unsigned NOT NULL,
   UNIQUE KEY `id` (`id`),
-  KEY `vk_id` (`vk_id`,`ip`,`project_id`)
+  KEY `vk_id` (`vk_id`),
+  KEY `ip` (`ip`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

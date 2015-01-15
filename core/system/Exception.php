@@ -19,8 +19,7 @@ class Exception extends \Exception
         parent::__construct($message, null, null);
         $this->message = $message;
         header($_SERVER['SERVER_PROTOCOL'].' 500 Internal Server Error');
-        $config = \System\ApplicationRegistry::getConfig();
-        if ($config->debug == 1){
+        if (Config::get('debug') == 1){
             $this->showDebugInfo();
             exit();
         }

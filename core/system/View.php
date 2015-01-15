@@ -81,9 +81,8 @@ abstract class View {
             $this->context->setBuffer('<!--'.$this->selector.'-->');
        }
        else{
-            $this->context->setBuffer($this->loadFromFile('layouts '.$name));
+            $this->context->setBuffer($this->renderWidgets($this->loadFromFile('layouts '.$name)));
             $this->setTimestamp();
-            $this->renderWidgets();
        }
     }
     
@@ -100,24 +99,26 @@ abstract class View {
 
     public function template($name){
        
-       if ($this->context->getBuffer() === null){
-           $this->context->setBuffer($this->loadFromFile('templates '.$name));
-       }
-       else{
-           $this->write($this->selector, $this->loadFromFile('templates '.$name));
-       }
+        if ($this->context->getBuffer() === null){
+            $this->context->setBuffer($this->renderWidgets($this->loadFromFile('templates '.$name)));
+        }
+        else{
+            $this->write($this->selector, $this->renderWidgets($this->loadFromFile('templates '.$name)));
+        }
     }
     
-    protected function renderWidgets()
+    protected function renderWidgets($input)
     {
         $p1='/<!--\[([\/a-zA-Z0-9]+)\]-->/';
-        $n = preg_match_all($p1, $this->context->getBuffer(), $matches);
+        $n = preg_match_all($p1, $input, $matches);
+        $result = $input;
         for ($i=0; $i<$n; $i++){
              $p2='<!--['.$matches[1][$i].']-->';
              $widget = new \System\Service('/'.$matches[1][$i]);
-             $this->context->setBuffer(str_replace($p2, $widget->getContent(), $this->context->getBuffer()));
+             $result = str_replace($p2, $widget->getContent(), $result);
              unset($widget);
-        }    
+        }
+        return $result;
     }
     
     public function getContextError(){

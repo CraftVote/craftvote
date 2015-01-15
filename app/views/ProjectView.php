@@ -18,6 +18,7 @@ class ProjectView extends \System\View {
         $this->layout('general');
         $this->template('project');
         $this->renderProject($this->getParam('project'));
+        $this->write('NAV', $this->getParam('NAV'));
     }
     
     protected function renderProject($project){
@@ -29,25 +30,11 @@ class ProjectView extends \System\View {
         else{
             $this->write('LOGO', $project['logo']);
         }
-        if ($project['website'] == NULL){
-            $this->write('WEBSITE', 'отсутствует');
-        }
-        else{
-            $this->write('WEBSITE', $project['website']);
-        }
-        if ($project['sn'] == NULL){
-            $this->write('SN', 'отсутствует');
-        }
-        else{
-            $this->write('SN', $project['sn']);
-        }
         $this->write('DESC', $project['description']);
         $this->write('VOTES', $project['votes']);
         $this->write('VISITS', $project['visits']);
         $this->write('ID', $project['id']);
         $this->write('REG', $project['date_reg']);
-        $this->write('USER_ID', $project['user_id']);
-        $this->write('USER_NAME', $project['name']);
         $this->write('RATING', $project['rating']);
     }
 }
