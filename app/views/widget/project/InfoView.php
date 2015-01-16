@@ -20,7 +20,7 @@ class InfoView extends \System\View {
         $nav = new \UI\Navtabs();
         $nav->append('Основная информация', null, true);
         $nav->append('Сервера', '/project/'.$project['id'].'/servers');
-        $nav->append('Отзывы', '/project/'.$project['id'].'/comments');
+        //$nav->append('Отзывы', '/project/'.$project['id'].'/comments');
         $nav->body('<table>
                         <tr>
                             <td><p><small class="text-muted">Владелец</small></p></td>

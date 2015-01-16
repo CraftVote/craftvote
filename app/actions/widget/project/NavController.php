@@ -29,9 +29,12 @@ class NavController extends \System\Controller {
                 case 'servers':
                     $this->moveTo('widget project '.$action);
                     break;
+                /*
                 case 'comments':
                     $this->moveTo('widget project '.$action);
                     break;
+                 * 
+                 */
                 default : $this->pageNotFound();
             }
         }

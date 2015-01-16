@@ -4,7 +4,7 @@
         <p class="text-muted">
             <small class="text-muted">Зарегестрирован <span class="time"><!--REG--></span></small>
             <br>
-            <small title="Рейтинг"><span class="glyphicon glyphicon-stats"></span> <!--RATING--></small> | <small title="Голосов"><span class="glyphicon glyphicon-heart"></span> <!--VOTES--></small> | <small title="Просмотров"><span class="glyphicon glyphicon-eye-open"></span> <!--VISITS--></small> | <small title="Отзывов"><span class="glyphicon glyphicon-comment"></span> 0</small>
+            <small title="Рейтинг"><span class="glyphicon glyphicon-stats"></span> <!--RATING--></small> | <small title="Голосов"><span class="glyphicon glyphicon-heart"></span> <!--VOTES--></small> | <small title="Просмотров"><span class="glyphicon glyphicon-eye-open"></span> <!--VISITS--></small>
         </p>    
     </div>
     <div class="col-xs-3 text-right">

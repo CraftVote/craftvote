@@ -57,7 +57,14 @@ class Validator {
     }
     
     private function getBool($name){
-        return filter_input(INPUT_POST, $name, FILTER_VALIDATE_BOOLEAN);
+        
+        $value = filter_input(INPUT_POST, $name, FILTER_VALIDATE_BOOLEAN);
+        if ($value){
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
 
     public function validate()

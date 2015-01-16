@@ -51,7 +51,7 @@ class DataMapper
     }
 
     public function findById($id){
-        $sql = 'SELECT * FROM '.$this->table.' WHERE '.$this->entity->getPrimaryKey().' = '.$id. ' LIMIT 1;';
+        $sql = 'SELECT * FROM '.$this->table.' WHERE '.$this->entity->getPrimaryKey().' = '.intval($id). ' LIMIT 1;';
         $result = \DB\MySQL\Executor::fetchOne($sql);
         if (!$result){
             return false;

@@ -46,6 +46,7 @@ class Executor {
     }
     
     static public function insert($sql){
+        //\System\Logger::sql($sql);
         $dbh = \DB\MySQL\Connector::getInstance();
         self::exeucute($dbh, $sql);
         if ($dbh->insert_id === 0){

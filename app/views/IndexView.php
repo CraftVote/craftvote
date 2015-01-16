@@ -65,7 +65,7 @@ class IndexView extends \System\HtmlView {
                         </div>
                         <div class="panel-footer">
                             <div class="row">
-                                <div class="col-xs-6"><p class="text-muted"><small title="Рейтинг"><span class="glyphicon glyphicon-stats"></span> '.$rating.'</small> | <small title="Голосов"><span class="glyphicon glyphicon-heart"></span> '.$votes.'</small> | <small title="Просмотров"><span class="glyphicon glyphicon-eye-open"></span> '.$visits.'</small> | <small title="Отзывов"><span class="glyphicon glyphicon-comment"></span> 0</small></p></div>
+                                <div class="col-xs-6"><p class="text-muted"><small title="Рейтинг"><span class="glyphicon glyphicon-stats"></span> '.$rating.'</small> | <small title="Голосов"><span class="glyphicon glyphicon-heart"></span> '.$votes.'</small> | <small title="Просмотров"><span class="glyphicon glyphicon-eye-open"></span> '.$visits.'</small></p></div>
                                 <div class="col-xs-6 text-right"><button onclick="voteProject(\''.$id.'\');" class="btn btn-success btn-xs btn-width-md"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Голосовать</button></div>
                             </div>    
                         </div>
