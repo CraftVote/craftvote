@@ -18,8 +18,7 @@ class UserToSystemEmail extends \System\Email {
     public function __construct($fromEmail, $subject, $username, $body) {
         parent::__construct();
         $this->From($fromEmail);
-        $config = \System\ApplicationRegistry::getConfig();
-        $this->To($config->admin_email);
+        $this->To(\System\Config::get('admin_email'));
         $this->Subject($subject);
         $this->Body($body.PHP_EOL.PHP_EOL.$username);
         $this->Priority(3);

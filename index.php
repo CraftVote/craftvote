@@ -14,7 +14,8 @@
                     'db_name' => 'craftvote',
                     'db_user' => 'root',
                     'db_password' => '',
-                    'admin_email' => 'ivan.shib@gmail.com'
+                    'admin_email' => 'ivan.shib@gmail.com',
+                    'system_sender_email' => 'support@craftvote.ru'
                 ),
                 'development' => array(
                     'debug' => true,
@@ -24,7 +25,8 @@
                     'db_name' => 'craftvote',
                     'db_user' => 'root',
                     'db_password' => '',
-                    'admin_email' => 'ivan.shib@gmail.com'
+                    'admin_email' => 'ivan.shib@gmail.com',
+                    'system_sender_email' => 'support@craftvote.ru'
                 )
             )
     );

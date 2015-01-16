@@ -15,20 +15,20 @@ namespace Custom;
  */
 class FromSystemEmail extends \System\Email {
     
-    const FROM = 'daemon@craftvote.ru';
-    
     protected $bodyText;
 
     public function __construct($toEmail, $subject) {
         parent::__construct();
-        $this->From(self::FROM);
+        $this->From(\System\Config::get('system_sender_email'));
         $this->To($toEmail);
         $this->Subject($subject);
         $this->Priority(3);
     }
     
     public function go(){
-        $this->Body($this->bodyText);
+        if ($this->bodyText !== NULL){
+            $this->Body($this->bodyText);
+        }
         $this->Send();
     }
     
