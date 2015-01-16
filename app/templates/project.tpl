@@ -8,7 +8,7 @@
         </p>    
     </div>
     <div class="col-xs-3 text-right">
-        <p class="padding-top"><button onclick="voteProject('<!--ID-->');" class="btn btn-success">Голосовать</button></p>
+        <p class="padding-top"><!--BUTTON--></p>
     </div>
 </div>
 <hr>

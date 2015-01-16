@@ -53,6 +53,7 @@ class Ajax {
     {
         $this->answer['type'] = 'fail';
         $this->answer['value'] = $text;
+        $this->answer['captcha'] = 1;
     }
     
     public function ajax_red_alert($text){

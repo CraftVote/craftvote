@@ -15,9 +15,22 @@ namespace Form;
  */
 abstract class AbstractModel {
     
-    protected $attributes = array(), $title, $elements = array(), $label_len = 2, $field_len = 8, $buttons = array();
+    protected $attributes = array(), $title, $elements = array(), $label_len = 2, $field_len = 8, $buttons = array(), $values = array();
     
     abstract protected function renderForm();
+    
+    public function setValue($name, $value){
+        $this->values[$name] = $value;
+    }
+    
+    public function getValue($name){
+        if (isset($this->values[$name])){
+            return $this->values[$name];
+        }
+        else{
+            return '';
+        }
+    }
     
     public function __construct($name, $action) {
         $this->setName($name);

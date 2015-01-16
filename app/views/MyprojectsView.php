@@ -47,6 +47,6 @@ class MyprojectsView extends \System\HtmlView {
     
     protected function renderTitle($title, $id){
         
-        return '<a href="/project/'.$id.'">'.$title.'</a>';
+        return '<a href="/project/'.$id.'/info">'.$title.'</a>';
     }
 }

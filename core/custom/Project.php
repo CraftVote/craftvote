@@ -45,7 +45,7 @@ class Project {
     }
     
     static public function getByProjectId($id){
-        $sql = 'SELECT p.id, p.votes, p.rating, p.visits, p.title, p.description, p.active, p.date_reg, p.website, p.sn, p.logo, u.name, u.id as user_id FROM projects p LEFT JOIN users u ON p.user_id = u.id  WHERE p.id = '.$id.' LIMIT 1;';
+        $sql = 'SELECT p.id, p.votes, p.rating, p.visits, p.title, p.description, p.active, p.date_reg, p.website, p.sn, p.logo, u.name, u.id as user_id FROM projects p LEFT JOIN users u ON p.user_id = u.id  WHERE p.id = '.intval($id).' LIMIT 1;';
         return \DB\MySQL\Executor::fetchOne($sql);
     }
     

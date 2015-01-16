@@ -134,7 +134,9 @@ class VerifyField {
     }
     
     static public function captcha($input){
-        return ($input === \System\Session::get('captcha'));
+        $origin = \System\Session::get('captcha');
+        \System\Session::delete('captcha');
+        return ($input === $origin);
     }
 
     static public function dir($text)
@@ -173,5 +175,4 @@ class VerifyField {
             return false;
         }
     }
-    
 }
