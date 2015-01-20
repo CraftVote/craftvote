@@ -137,7 +137,7 @@ abstract class AbstractModel {
     }
     
     public function appendElement($element){
-        if ($this->getValue($element->getName()) !== null){
+        if ($this->getValue($element->getName()) !== ''){
             $element->setValue($this->getValue($element->getName()));
         }
         $this->elements[] = $element;
