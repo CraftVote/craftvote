@@ -28,18 +28,12 @@ class EditProject extends \Form\AbstractModel {
         
         $title = new \UI\Form\SingleRowText('title', 'Название проекта', true);
         $title->setMaxLen(64);
-        $title->setValue($this->getValue('title'));
         $this->appendElement($title);
         $description = new \UI\Form\MultipleRowsText('description', 'Описание', false, 'не обязательно');
         $description->setMaxLen(512);
-        $description->setValue($this->getValue('description'));
         $this->appendElement($description);
-        $website = new \UI\Form\SingleRowText('website', 'Вебсайт', false, 'не обязательно');
-        $website->setValue($this->getValue('website'));
-        $this->appendElement($website);
-        $sn = new \UI\Form\SingleRowText('sn', 'Группа в соц.сети', false, 'не обязательно');
-        $sn->setValue($this->getValue('sn'));
-        $this->appendElement($sn);
+        $this->appendElement(new \UI\Form\SingleRowText('website', 'Вебсайт', false, 'не обязательно'));
+        $this->appendElement(new \UI\Form\SingleRowText('sn', 'Группа в соц.сети', false, 'не обязательно'));
         $this->appendElement(new \UI\Form\Captcha('captcha', 'Код с картинки'));
         $this->appendHr();
         $this->appendButton(new \UI\Form\Button\SaveButton());
